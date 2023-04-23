@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.scContextFile org.eventb.core.accurate="true" org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase">
+    <org.eventb.core.scExtendsContext name="'" org.eventb.core.scTarget="/Airport Traffic Controller/ATC_ct.bcc|org.eventb.core.scContextFile#ATC_ct" org.eventb.core.source="/Airport Traffic Controller/ATC_ct_extended.buc|org.eventb.core.contextFile#ATC_ct_extended|org.eventb.core.extendsContext#'"/>
+    <org.eventb.core.scInternalContext name="ATC_ct">
+        <org.eventb.core.scAxiom name="'" org.eventb.core.label="axm1" org.eventb.core.predicate="nb_max∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#(" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name="(" org.eventb.core.label="axm2" org.eventb.core.predicate="nb_max=20" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#)" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name=")" org.eventb.core.label="axm3" org.eventb.core.predicate="nb_R∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#+" org.eventb.core.theorem="false"/>
+        <org.eventb.core.scAxiom name="*" org.eventb.core.label="axm4" org.eventb.core.predicate="nb_R=22" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#," org.eventb.core.theorem="false"/>
+        <org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.constant#'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.scConstant de.prob.symbolic.symbolicAttribute="false" name="nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.constant#*" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.scInternalContext>
+    <org.eventb.core.scAxiom name="ATC_cu" org.eventb.core.label="axm1" org.eventb.core.predicate="finite(PLANES)" org.eventb.core.source="/Airport Traffic Controller/ATC_ct_extended.buc|org.eventb.core.contextFile#ATC_ct_extended|org.eventb.core.axiom#5" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scAxiom name="ATC_cv" org.eventb.core.label="axm2" org.eventb.core.predicate="card(PLANES)=nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_ct_extended.buc|org.eventb.core.contextFile#ATC_ct_extended|org.eventb.core.axiom#6" org.eventb.core.theorem="false"/>
+    <org.eventb.core.scCarrierSet name="PLANES" org.eventb.core.source="/Airport Traffic Controller/ATC_ct_extended.buc|org.eventb.core.contextFile#ATC_ct_extended|org.eventb.core.carrierSet#4" org.eventb.core.type="ℙ(PLANES)"/>
+</org.eventb.core.scContextFile>

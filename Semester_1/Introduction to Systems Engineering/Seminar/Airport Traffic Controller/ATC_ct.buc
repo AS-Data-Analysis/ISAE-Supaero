@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="'" org.eventb.core.identifier="nb_max"/>
+    <org.eventb.core.axiom name="(" org.eventb.core.label="axm1" org.eventb.core.predicate="nb_max ∈ ℕ"/>
+    <org.eventb.core.axiom name=")" org.eventb.core.label="axm2" org.eventb.core.predicate="nb_max = 20"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name="*" org.eventb.core.identifier="nb_R"/>
+    <org.eventb.core.axiom name="+" org.eventb.core.label="axm3" org.eventb.core.predicate="nb_R ∈ ℕ"/>
+    <org.eventb.core.axiom name="," org.eventb.core.label="axm4" org.eventb.core.predicate="nb_R = 5"/>
+</org.eventb.core.contextFile>

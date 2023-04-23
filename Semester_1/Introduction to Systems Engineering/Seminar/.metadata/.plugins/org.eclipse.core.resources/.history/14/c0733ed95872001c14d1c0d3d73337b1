@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="43">
+    <org.eventb.core.poPredicateSet name="CTXHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_R" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="nb_may" org.eventb.core.predicate="nb_max∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#("/>
+        <org.eventb.core.poPredicate name="nb_maz" org.eventb.core.predicate="nb_max=20" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#)"/>
+        <org.eventb.core.poPredicate name="nb_ma{" org.eventb.core.predicate="nb_R∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#+"/>
+        <org.eventb.core.poPredicate name="nb_ma|" org.eventb.core.predicate="nb_R=5" org.eventb.core.source="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#,"/>
+        <org.eventb.core.poIdentifier name="PLANES" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poPredicate name="nb_ma}" org.eventb.core.predicate="finite(PLANES)" org.eventb.core.source="/Airport Traffic Controller/ATC_ct_extended.buc|org.eventb.core.contextFile#ATC_ct_extended|org.eventb.core.axiom#5"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_landing" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="pl_t" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poIdentifier name="pl_rl" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poIdentifier name="pl_rt" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poIdentifier name="nb_takeoff" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_ground" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poPredicate name="nb_taxiwaz" org.eventb.core.predicate="nb_ground∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_abs.bum|org.eventb.core.machineFile#ATC_mc_abs|org.eventb.core.invariant#+"/>
+        <org.eventb.core.poPredicate name="nb_taxiwa{" org.eventb.core.predicate="nb_ground≤nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_abs.bum|org.eventb.core.machineFile#ATC_mc_abs|org.eventb.core.invariant#,"/>
+        <org.eventb.core.poPredicate name="nb_taxiwa|" org.eventb.core.predicate="nb_taxiway∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.invariant#\/"/>
+        <org.eventb.core.poPredicate name="nb_taxiwa}" org.eventb.core.predicate="nb_takeoff+nb_landing+nb_taxiway≤nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.invariant#0"/>
+        <org.eventb.core.poPredicate name="nb_taxiwa~" org.eventb.core.predicate="nb_takeoff+nb_landing≤nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.invariant#8"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="inv4/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeg"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_rt)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeg"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv5/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeh"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_rl)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeh"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv6/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendei"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_t)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendei"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv10/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_rt)∧finite(pl_rl)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#L"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#L"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="inv11/WD" org.eventb.core.accurate="true" org.eventb.core.poDesc="Well-definedness of Invariant" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extenden"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_rt)∧finite(pl_rl)∧finite(pl_t)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#M"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#M"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extenden"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(∅ ⦂ ℙ(PLANES))=0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeh|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(∅ ⦂ ℙ(PLANES))=0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendei|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(∅ ⦂ ℙ(PLANES))=0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv7/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(∅ ⦂ ℙ(PLANES))" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#I"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#I"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv7\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem|org.eventb.core.poPredicate#PRD6"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv8/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(∅ ⦂ ℙ(PLANES))" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#J"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#J"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv8\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem|org.eventb.core.poPredicate#PRD7"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv9/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(∅ ⦂ ℙ(PLANES))" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#K"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#K"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv9\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem|org.eventb.core.poPredicate#PRD8"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv10/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(∅ ⦂ ℙ(PLANES))+card(∅ ⦂ ℙ(PLANES))≤nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#L"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#L"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv10\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extenden|org.eventb.core.poPredicate#PRD9"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="INITIALISATION/inv11/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  establishment" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendep"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(∅ ⦂ ℙ(PLANES))+card(∅ ⦂ ℙ(PLANES))+card(∅ ⦂ ℙ(PLANES))≤nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#M"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#*"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#M"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#INITIALISATION\/inv11\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP|org.eventb.core.poPredicate#PRD10"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTATC_ct_extendep" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#CTXHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_landing'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="pl_rt'" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poIdentifier name="pl_rl'" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poIdentifier name="pl_t'" org.eventb.core.type="ℙ(PLANES)"/>
+        <org.eventb.core.poIdentifier name="nb_ground'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_taxiway'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_takeoff'" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPATC_ct_extendep" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTIDENTATC_ct_extendep" org.eventb.core.poStamp="41"/>
+    <org.eventb.core.poSequent name="Enter_rwy/grd3/WD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTHYPATC_ct_extendeq("/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_t)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#,"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#,"/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTHYPATC_ct_extendeq("/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/grd4/WD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Well-definedness of Guard" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTHYPATC_ct_extendeq)"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="finite(pl_rt)∧finite(pl_rl)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#."/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#."/>
+        <org.eventb.core.poSelHint name="SEQHYS" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTHYPATC_ct_extendeq)"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/inv4/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendeq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(pl_rt)=nb_takeoff" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Enter_rwy\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeh|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/inv6/INV" org.eventb.core.accurate="false" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="43">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendeq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(pl_t)=nb_taxiway" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Enter_rwy\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/grd2/GRD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendeq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="nb_taxiway&gt;0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.guard#)"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.guard#)"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Enter_rwy\/grd2\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/grd3/GRD" org.eventb.core.accurate="false" org.eventb.core.poDesc="Guard strengthening (split)" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendeq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="nb_takeoff+nb_landing≤nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.guard#*"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Enter_rwy\/grd3\/GRD|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/act1/SIM" org.eventb.core.accurate="false" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="43">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendeq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="nb_taxiway=nb_taxiway − 1" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.action#("/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Enter_rwy\/act1\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Enter_rwy/act2/SIM" org.eventb.core.accurate="false" org.eventb.core.poDesc="Action simulation" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendeq"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="nb_takeoff=nb_takeoff+1" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.action#+"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#6|org.eventb.core.action#+"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Enter_rwy\/act2\/SIM|org.eventb.core.poPredicateSet#SEQHYP"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTATC_ct_extendeq" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_taxiway'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_takeoff'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="p" org.eventb.core.type="PLANES"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPATC_ct_extendeq(" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTIDENTATC_ct_extendeq" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="p∈pl_t" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#)"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTHYPATC_ct_extendeq)" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTHYPATC_ct_extendeq(" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="card(pl_t)&gt;0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPATC_ct_extendeq" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTHYPATC_ct_extendeq)" org.eventb.core.poStamp="42">
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="card(pl_rt)+card(pl_rl)&lt;nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#7|org.eventb.core.guard#."/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="TakeOff/inv4/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extender"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(pl_rt)=nb_takeoff − 1" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#+"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#8"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#TakeOff\/inv4\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeh|org.eventb.core.poPredicate#PRD3"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTATC_ct_extender" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_ground'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_takeoff'" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPATC_ct_extender" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTIDENTATC_ct_extender" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="nb_ground&gt;0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#8|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="nb_takeoff&gt;0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#8|org.eventb.core.guard#,"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="Land/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendes"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(pl_rl)=nb_landing+1" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#,"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#9"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Land\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendei|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTATC_ct_extendes" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_landing'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_ground'" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPATC_ct_extendes" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTIDENTATC_ct_extendes" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="nb_ground&lt;nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_abs.bum|org.eventb.core.machineFile#ATC_mc_abs|org.eventb.core.event#\/|org.eventb.core.guard#'"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="nb_takeoff+nb_landing&lt;nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#,|org.eventb.core.guard#+"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poSequent name="Leav_rwy/inv5/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(pl_rl)=nb_landing − 1" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#:"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Leav_rwy\/inv5\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendei|org.eventb.core.poPredicate#PRD4"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poSequent name="Leav_rwy/inv6/INV" org.eventb.core.accurate="true" org.eventb.core.poDesc="Invariant  preservation" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicateSet name="SEQHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTALLHYPATC_ct_extendet"/>
+        <org.eventb.core.poPredicate name="SEQHYQ" org.eventb.core.predicate="card(pl_t)=nb_taxiway+1" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSource name="SEQHYR" org.eventb.core.poRole="ABSTRACT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#4"/>
+        <org.eventb.core.poSource name="SEQHYS" org.eventb.core.poRole="CONCRETE" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.event#:"/>
+        <org.eventb.core.poSource name="SEQHYT" org.eventb.core.poRole="DEFAULT" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poSelHint name="SEQHYU" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poSelHintSnd="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poSequent#Leav_rwy\/inv6\/INV|org.eventb.core.poPredicateSet#SEQHYP"/>
+        <org.eventb.core.poSelHint name="SEQHYV" org.eventb.core.poSelHintFst="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem|org.eventb.core.poPredicate#PRD5"/>
+    </org.eventb.core.poSequent>
+    <org.eventb.core.poPredicateSet name="EVTIDENTATC_ct_extendet" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ALLHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poIdentifier name="nb_landing'" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.poIdentifier name="nb_taxiway'" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="EVTALLHYPATC_ct_extendet" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#EVTIDENTATC_ct_extendet" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="nb_takeoff+nb_landing&gt;0" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_1st.bum|org.eventb.core.machineFile#ATC_mc_1st|org.eventb.core.event#4|org.eventb.core.guard#'"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPATC_ct_extendeg" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="pl_rt⊆PLANES" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#A"/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="pl_rl⊆PLANES" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#B"/>
+        <org.eventb.core.poPredicate name="PRD2" org.eventb.core.predicate="pl_t⊆PLANES" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#C"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPATC_ct_extendeh" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeg" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD3" org.eventb.core.predicate="card(pl_rt)=nb_takeoff" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#D"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPATC_ct_extendei" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendeh" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD4" org.eventb.core.predicate="card(pl_rl)=nb_landing" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#G"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPATC_ct_extendem" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendei" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD5" org.eventb.core.predicate="card(pl_t)=nb_taxiway" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#H"/>
+        <org.eventb.core.poPredicate name="PRD6" org.eventb.core.predicate="finite(pl_rt)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#I"/>
+        <org.eventb.core.poPredicate name="PRD7" org.eventb.core.predicate="finite(pl_rl)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#J"/>
+        <org.eventb.core.poPredicate name="PRD8" org.eventb.core.predicate="finite(pl_t)" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#K"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="HYPATC_ct_extenden" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extendem" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD9" org.eventb.core.predicate="card(pl_rt)+card(pl_rl)≤nb_R" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#L"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_mc_2nd.bpo|org.eventb.core.poFile#ATC_mc_2nd|org.eventb.core.poPredicateSet#HYPATC_ct_extenden" org.eventb.core.poStamp="41">
+        <org.eventb.core.poPredicate name="PRD10" org.eventb.core.predicate="card(pl_rt)+card(pl_rl)+card(pl_t)≤nb_max" org.eventb.core.source="/Airport Traffic Controller/ATC_mc_2nd.bum|org.eventb.core.machineFile#ATC_mc_2nd|org.eventb.core.invariant#M"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

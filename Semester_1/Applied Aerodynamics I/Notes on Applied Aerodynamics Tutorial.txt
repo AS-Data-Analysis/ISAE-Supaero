@@ -1,0 +1,27 @@
+Notes on Applied Aerodynamics tutorial
+
+Handley Page wind tunnel - turbulent intensity - 0.5%
+initial experiment of Handley page wind tunnel is flawed because a turbulence intensity of 0.5% results in N=4.28 which is a terrible wind tunnel because
+in order to study transition, you first need a laminar flow with low Tu. N=4.28 is already a very high intensity
+
+Turbulence intensity =  standard deviation of fluctuating wind velocity/mean wind speed.
+
+Adjust the Re range while doing the batch analysis. If in the calculations, the Re goes below or above the range of values given, the solution will not converge
+
+Outputs
+Check the Re and N
+Endurance vs location of transition
+natural transition vs alpha
+Cl vs alpha (optional)
+effect of transition on pressure distribution, lift, drag, ENDURANCE and boundary layer intergral quantities
+skin friction vs location (at different transition locations) For -ve Cf, you can find the separation bubbles. Based on the bubble location, you can install trips
+
+dCp/dx = 0 (condition for forming a local separation bubble)
+
+how to proceed with the aero project
+read about the facebook wing and simulate it. Read the paper
+simulate the mark1 wing and compare results with facebook wing while simultaneously addressing point 1 on why Handley wind tunnel sucks
+pick another wing from UIUC or suggest design changes and discuss why the suggested design would be better
+
+you can find out whether the surface of the solar panels themselves have the same aerodynamic integrity as the laminar wing surfaces
+how would conditions be different while climbing to the necessary altitude and descent

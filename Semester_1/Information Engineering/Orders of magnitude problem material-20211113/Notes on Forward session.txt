@@ -1,0 +1,26 @@
+Image compression
+Communication chain
+Cryptography
+
+Two key parameters
+
+Scheme to achieve best compression ratio
+Max bit rate that can be transmitted through 500 Hz
+
+at the end of the session we should
+
+go through the entire file properly.
+
+relation between entropy and compression
+
+How is an image stored in a file?
+What is the math behind behind data compression?
+What is lossless compression?
+
+
+How to create a probability distribution of a signal?
+How to add noise to it?
+How are bandwidth, entropy and bit rate related?
+Finally relation between bit rate and noise?
+
+reducing number of pixels - compression

@@ -1,0 +1,81 @@
+#VRML V2.0 utf8
+
+PROTO BlueSatinPaint [
+]
+{
+  Appearance {
+    material Material {
+      specularColor 0 0.4 0.8
+      shininess 0.8
+      diffuseColor 0 0.4 0.8
+    }
+  }
+}
+
+PROTO Pied [
+]
+{
+  Group {
+    children [
+      Transform {
+        translation 0 3.5 0
+        children Shape {
+          appearance BlueSatinPaint {
+          }
+          geometry Cylinder {
+            top FALSE
+            radius 0.7
+            height 5
+            bottom FALSE
+          }
+        }
+      }
+      Transform {
+        translation 0 0.5 0
+        children Shape {
+          appearance Appearance {
+            material Material {
+              shininess 0.8
+              diffuseColor 0 0 0
+            }
+          }
+          geometry Cylinder {
+            radius 0.75
+            height 1
+          }
+        }
+      }
+    ]
+  }
+}
+
+DEF Support Group {
+  children [
+    DEF Plateau Transform {
+      translation 0 6.25 0
+      children Shape {
+        appearance BlueSatinPaint {
+        }
+        geometry Cylinder {
+          radius 12
+          height 0.5
+        }
+      }
+    }
+    DEF PiedAvant Transform {
+      translation 0 0 11
+      children Pied {
+      }
+    }
+    DEF PiedArriereDroit Transform {
+      translation 9.5263 0 -5.5
+      children Pied {
+      }
+    }
+    DEF PiedArriereGauche Transform {
+      translation -9.5263 0 -5.5
+      children Pied {
+      }
+    }
+  ]
+}

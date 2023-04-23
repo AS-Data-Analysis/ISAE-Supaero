@@ -1,0 +1,234 @@
+#VRML V2.0 utf8
+
+WorldInfo {
+  title "Reaction Wheel"
+  info "Laurent Alloza - Institut Superieur de l'Aeronautique et de l'Espace" 
+}
+DEF DefaultView Transform {
+  rotation 0 1 0 -0.436332
+  children Viewpoint {
+    description "Perspective"
+    position 0 140 60
+    orientation 1 0 0 -0.785398
+    fieldOfView 0.5
+  }
+}
+Viewpoint {
+  description "Front View"
+  position 0 100 100
+}
+Background {
+  skyColor [
+    0 0 0,
+    0.2 0.2 0.9,
+    0.4 0.8 0.9 
+  ]
+  skyAngle [1.39626, 1.51844]
+  groundColor [
+    0 0 0,
+    0.3 0.6 0.3,
+    0.5 0.9 0.5 
+  ]
+  groundAngle [1.3, 1.5708]
+}
+SpotLight {
+  location 0 250 100
+  direction 0 -1 0
+  intensity 0.25
+}
+DEF Platform Transform {
+  translation 0 82 0
+  rotation 0 1 0 0
+  children [
+    Shape {
+      appearance Appearance {
+        material Material {
+          specularColor 1 1 1
+          shininess 0.1
+          diffuseColor 0.6 0 0.2
+        }
+      }
+      geometry Cylinder {
+        radius 14
+        bottom FALSE
+      }
+    }
+    Transform {
+      translation 0 1 -3
+      children [
+        DEF Moteur Group {
+          children [
+            Transform {
+              translation 0 0.25 0
+              children Shape {
+                appearance Appearance {
+                  material DEF Aluminium Material {
+                    specularColor 1 1 1
+                    shininess 0.1
+                    diffuseColor 0.6 0.6 0.6
+                    ambientIntensity 0.4
+                  }
+                }
+                geometry Cylinder {
+                  radius 2.5
+                  height 0.5
+                }
+              }
+            }
+            Transform {
+              translation 0 3.5 0
+              children Shape {
+                appearance Appearance {
+                  material USE Aluminium
+                }
+                geometry Cylinder {
+                  radius 1.5
+                  height 6
+                }
+              }
+            }
+          ]
+        }
+        DEF Roue Transform {
+          children [
+            Transform {
+              translation 0 8.5 0
+              children Shape {
+                appearance Appearance {
+                  texture PixelTexture {
+                  }
+                  material Material {
+                    specularColor 0.6 0.6 0.6
+                    shininess 0.6
+                    diffuseColor 1 0.6 0
+                    ambientIntensity 0.4
+                  }
+                }
+                geometry Cylinder {
+                  top FALSE
+                  radius 4
+                  height 1
+                }
+              }
+            }
+            Transform {
+              translation 0 7.5 0
+              children Shape {
+                appearance Appearance {
+                  material Material {
+                    specularColor 0.6 0.6 0.6
+                    shininess 0.6
+                    diffuseColor 1 0.6 0
+                    ambientIntensity 0.4
+                  }
+                }
+                geometry Cylinder {
+                  top FALSE
+                  radius 4
+                  height 1
+                  bottom FALSE
+                }
+              }
+            }
+            Transform {
+              translation 0 8.5 0
+              children Shape {
+                appearance Appearance {
+                  material Material {
+                    transparency 0.5
+                    diffuseColor 1 1 1
+                  }
+                }
+                geometry IndexedFaceSet {
+                  coordIndex [
+                    0, 1, 2, -1, 
+                    0, 3, 4, -1, 
+                    0, 5, 6, -1, 
+                    0, 7, 8, -1, 
+                    0, 9, 10, -1, 
+                    0, 11, 12, -1 
+                  ]
+                  ccw FALSE
+                  coord Coordinate {
+                    point [
+                      0 0 0,
+                      3 0 0,
+                      2.5981 0 1.5,
+                      1.5 0 2.5981,
+                      0 0 3,
+                      -1.5 0 2.5981,
+                      -2.5981 0 1.5,
+                      -3 0 0,
+                      -2.5981 0 -1.5,
+                      -1.5 0 -2.5981,
+                      0 0 -3,
+                      1.5 0 -2.5981,
+                      2.5981 0 -1.5 
+                    ]
+                  }
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    DEF Fleche Transform {
+      translation 0 1.1 10
+      children IndexedLineSet {
+        coordIndex [
+          0, 1, 2, 3, 4, 5, 6, 0 
+        ]
+        coord Coordinate {
+          point [
+            1 0 -2,
+            1 0 1,
+            2 0 1,
+            0 0 3,
+            -2 0 1,
+            -1 0 1,
+            -1 0 -2 
+          ]
+        }
+      }
+    }
+  ]
+}
+DEF Table Inline {
+  url "Table70x50.wrl" 
+}
+DEF Support Transform {
+  translation 0 75 0
+  children Inline {
+    url "SupportRoue.wrl" 
+  }
+}
+DEF Decor Group {
+  children DEF Sol Shape {
+    appearance Appearance {
+      textureTransform TextureTransform {
+        scale 16 16
+      }
+      texture PixelTexture {
+        image 2 2 1 
+        128 192 
+        192 128 
+
+      }
+    }
+    geometry IndexedFaceSet {
+      coordIndex [
+        0, 1, 2, 3 
+      ]
+      ccw FALSE
+      coord Coordinate {
+        point [
+          250 0 250,
+          -250 0 250,
+          -250 0 -100,
+          250 0 -100 
+        ]
+      }
+    }
+  }
+}

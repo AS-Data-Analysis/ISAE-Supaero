@@ -1,0 +1,77 @@
+%% SYSTLC: Orocos Component Target TMF: ert_default_tmf MAKE: make_rtw \
+%%    EXTMODE: no_ext_comm
+%%
+%% Abstract: Orocos Component target file.
+%%------------------------------------------------------------------------------
+%% (c)Institut Superieur de l'Aeronautique et de l'Espace
+%%    Laurent Alloza (laurent.alloza(a)isae.fr)
+%%    14-Sep-2015
+%%------------------------------------------------------------------------------
+%selectfile NULL_FILE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TLC Configuration Variables Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Assign code format, language, target type.
+%%
+%assign CodeFormat = "Embedded-C"
+%assign TargetType = "RT"
+%assign Language   = "C"
+
+%% AutoBuildProcedure = TLC_TRUE
+%% => use static matlabroot/rtw/c/src/common/rt_main.c
+%% => auto-generate rtmodel.h
+%assign AutoBuildProcedure = TLC_FALSE
+
+%% The model_SetEventsForThisBaseRate function is not required
+%% when using an operating system.
+%assign SuppressSetEventsForThisBaseRateFcn = TLC_FALSE
+%assign InlineSetEventsForThisBaseRateFcn  = TLC_TRUE
+%assign SuppressMultiTaskScheduler = TLC_TRUE
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TLC semaphore & mutex functions
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%assign TargetRegistMutexOp   = 1
+%%assign TargetRegistSynchroOp = 1
+%%include "commontargetlib.tlc"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% TLC Program Entry Point
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Call entry point function.
+%include "codegenentry.tlc"
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Error out on incompatible options
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%if (ExtMode != 0)
+  %assign errTxt = "External mode is not supported by Orocos Component."
+  %<LibReportError(errTxt)>
+%endif
+%if !SLibSingleTasking()
+  %assign errTxt = "Multitasking mode is not supported by Orocos Component."
+  %<LibReportError(errTxt)>
+%endif
+%if SLibFcnProtoCtrlActive()
+  %%customized function prototype generated. Need global variables.
+  %assign errTxt = "Customized functions prototypes are not supported by Orocos Component."
+  %<LibReportError(errTxt)>
+%endif
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% RTW_OPTIONS Section
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+/%
+  BEGIN_RTW_OPTIONS
+
+  rtwoptions = orocomp_rtwoptions();
+
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  %% Configure RTW code generation settings
+  %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+  rtwgensettings.Version = '1';
+  rtwgensettings.DerivedFrom = 'ert.tlc';
+  rtwgensettings.BuildDirSuffix = '_orocomp_rtw';
+  rtwgensettings.SelectCallback  = ['orocomp_auto_config(hDlg,hSrc)'];
+
+  END_RTW_OPTIONS
+ %/

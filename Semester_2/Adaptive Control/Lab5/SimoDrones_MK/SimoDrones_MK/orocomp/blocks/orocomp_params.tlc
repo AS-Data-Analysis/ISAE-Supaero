@@ -1,0 +1,53 @@
+%%==========================================================================
+%% (c)2013 Institut Superieur de l'Aeronautique et de l'Espace
+%%    Laurent Alloza (laurent.alloza(a)isae.fr)
+%%    Version 1.0 (R2012b)
+%%    Date : 08/2013
+%%==========================================================================
+%% Description:
+%%   functions for orocos Property(s).
+%%==========================================================================
+%function LibGetRecordIsTunable(rec)
+  %if ISFIELD(rec, "Tunable")
+    %return (rec.Tunable == "yes")
+  %endif
+  %return 0
+%endfunction
+%% Function: AddParams =================================================
+%%
+%% Purpose:
+%%    Add tunable params to component class constructor
+%function AddParams() Output
+  %openfile txtBuf
+  %foreach idx = ModelParameters.NumParameters
+    %assign parStruct  = LibGetParametersStruct()
+    %assign P = ModelParameters.Parameter[idx]
+    %with P
+      %assign id = LibGetRecordIdentifier(P)
+      %assign portWidth  = LibGetRecordWidth(P)
+      %assign isComplex  = LibGetRecordIsComplex(P)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(P))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      %if LibGetRecordIsTunable(P)
+        %if portWidth == 1
+        this->addProperty( "%<id>", %<parStruct>.%<id> ).doc("%<id> : Property< %<DataType> >" );
+        %elseif portWidth < RollThreshold
+          %foreach sigIdx = portWidth
+          this->addProperty( "%<id>_%<sigIdx>", %<parStruct>.%<id>[%<sigIdx>] ).doc("%<id>[%<sigIdx>] : Property< %<DataType> >" );
+          %endforeach
+        %else %% portWidth > RollThreshold
+          for(int i = 0; i < %<portWidth>; i++) {
+            ostringstream pname,pdoc;
+            pname << "%<id>_" << i;
+            pdoc << "%<id>[" << i << "] : Property< %<DataType> >" ;
+            this->addProperty( pname.str(), %<parStruct>.%<id>[i] ).doc( pdoc.str() );
+          }
+        %endif
+      %endif
+    %endwith
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction

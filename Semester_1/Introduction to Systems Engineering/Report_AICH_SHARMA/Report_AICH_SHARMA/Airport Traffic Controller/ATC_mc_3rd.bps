@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="INITIALISATION/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="133" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="133" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="TakeOff/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="150" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Leav_rwy/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="151" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Accept_clearance/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="134" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Accept_clearance/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="134" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Add_rwy_nok/inv4/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="134" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Add_rwy_nok/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="134" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Free_rwy_occ/grd2/WD" org.eventb.core.confidence="1000" org.eventb.core.poStamp="149" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Free_rwy_occ/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="134" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Free_rwy_nok/inv6/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="134" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>

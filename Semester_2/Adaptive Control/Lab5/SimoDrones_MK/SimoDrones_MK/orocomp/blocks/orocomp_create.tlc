@@ -1,0 +1,192 @@
+%%------------------------------------------------------------------------------
+%% (c)2015 Institut Superieur de l'Aeronautique et de l'Espace
+%%    Laurent Alloza (laurent.alloza(a)isae.fr)
+%%------------------------------------------------------------------------------
+%% Description:
+%%   Create an OROCOS Component from a simulink model.
+%%------------------------------------------------------------------------------
+%implements  "orocomp_create" "C"
+%% SFcnParamSettings =======================================================
+%%   NAMESPACE  -- string
+%%   USEINLIB   -- boolean
+%%==========================================================================
+%include "orocomp_inputs.tlc"
+%include "orocomp_outputs.tlc"
+%include "orocomp_params.tlc"
+
+%% Function: OrocompH ====================================================
+%%
+%% Purpose:
+%%    Create model-component.h
+%function OrocompH() void
+  %assign modelclassname = RTWFcnCPPClass.Object.ObjectProperties.ModelClassName
+  %assign component = LibGetModelName()
+  %assign filename = SPRINTF("ORO_COMP_%s",component)
+  %assign namespace = SFcnParamSettings.NAMESPACE
+
+  %assign componentH = LibCreateSourceFile("Header", "Custom", filename)
+  %openfile txtBuf
+  /* Model header file(s) */
+  #include "%<component>.h"
+  /* Orocos headers */
+  #include <rtt/Component.hpp>
+  #include <rtt/TaskContext.hpp>
+  #include <rtt/InputPort.hpp>
+  #include <rtt/OutputPort.hpp>
+  #include <rtt/Property.hpp>
+  %closefile txtBuf
+  %<LibSetSourceFileSection(componentH,"Includes",txtBuf)>
+
+  %openfile txtBuf
+  namespace %<namespace> {
+  using namespace std;
+  using namespace RTT;
+  // =====================================================================
+  // Orocos Component class defintion
+  // =====================================================================
+  class %<component> : public TaskContext , %<modelclassname>
+  {
+    protected:
+      %<DeclareInputs()>
+      %<DeclareOutputs()>
+    public:
+      %<component>(const string & name);
+      bool configureHook();
+      bool startHook();
+      void updateHook();
+      void stopHook();
+      void cleanupHook();
+  };
+  }
+  %closefile txtBuf
+  %<LibSetSourceFileSection(componentH,"Functions",txtBuf)>
+%endfunction
+%% Function: OrocompC ====================================================
+%%
+%% Purpose:
+%%    Create model-component.cpp
+%function OrocompC() void
+  %assign component = LibGetModelName()
+  %assign filename = SPRINTF("ORO_COMP_%s",component)
+  %assign namespace = SFcnParamSettings.NAMESPACE
+
+  %assign componentC = LibCreateSourceFile("Source", "Custom", filename)
+  %openfile txtBuf
+  #include "%<filename>.h"
+  %closefile txtBuf
+  %<LibSetSourceFileSection(componentC,"Includes",txtBuf)>
+
+  %openfile txtBuf
+  namespace %<namespace> {
+  // =====================================================================
+  // Constructor
+  // =====================================================================
+  %<component>::%<component>(const string& name) : TaskContext(name, PreOperational)
+  {
+    // ==< Inputs >===============================
+    %<AddInputs()>
+    // ==< Outputs >==============================
+    %<AddOutputs()>
+    // ==< Properties >===========================
+    %<AddParams()>
+  }
+  // =====================================================================
+  // Configuration code.
+  // =====================================================================
+  bool  %<component>::configureHook() {
+    // Initialize the model with its default values
+    // internal states and tunables parameters are set here
+    this->initialize();
+    // set to periodic execution mode.
+    return this->setPeriod(%<LibGetClockTickStepSize(0)>);
+  }
+  // =====================================================================
+  // Start up code.
+  // =====================================================================
+  bool %<component>::startHook() {
+    // Return false to abort start up.
+    return true;
+  }
+  // =====================================================================
+  // This function is periodicaly called by the Execution Engine.
+  // =====================================================================
+  void %<component>::updateHook() {
+    // ==< Code for External Inputs >=============
+    %<ReadInputs()>
+    // ===< Call Model baserate step >============
+    this->step();
+    // ==< Code for External Outputs >============
+    %<WriteOutputs()>
+  }
+  // =====================================================================
+  // This function is called when the task is stopped.
+  // =====================================================================
+  void %<component>::stopHook() {
+    // Your stop code after last updateHook()
+  }
+  // =====================================================================
+  // This function is called when the task is being deconfigured.
+  // =====================================================================
+  void %<component>::cleanupHook() {
+    %if IncludeMdlTerminateFcn
+    // Cleanup model workspace if necessary
+    this->terminate();
+    %endif
+  }
+  } 
+  %closefile txtBuf
+  %<LibSetSourceFileSection(componentC,"Functions",txtBuf)>
+
+  %assign useInLib = SFcnParamSettings.USEINLIB
+  %openfile txtBuf
+  // =====================================================================
+  // Orocos Component 
+  // =====================================================================
+  %if useInLib
+  ORO_CREATE_COMPONENT_LIBRARY();
+  ORO_LIST_COMPONENT_TYPE(%<namespace>::%<component>);
+  %else
+  ORO_CREATE_COMPONENT(%<namespace>::%<component>);
+  %endif
+  %closefile txtBuf
+  %<LibSetSourceFileSection(componentC,"UserBottom",txtBuf)>
+%endfunction
+%% Function: BlockTypeSetup ====================================================
+%%
+%% Purpose:
+%%     BlockTypeSetup executes once per block type before code generation begins.
+%%
+%function BlockTypeSetup(block, system) void
+  %assign modelRef = LibIsModelReferenceTarget()
+  %if modelRef
+    %% don't generate component if model is referenced
+  %else
+    %assign component = LibGetModelName()
+    %assign filename = SPRINTF("ORO_COMP_%s",component)
+    %<LibAddToModelSources(filename)>
+
+    %assign namespace = SFcnParamSettings.NAMESPACE
+    %assign hFile = LibGetModelDotHFile()
+    %openfile txtBuf
+    using namespace %<namespace>;
+    %closefile txtBuf
+    %<LibSetSourceFileSection(hFile, "Defines", txtBuf)>
+  %endif
+%endfunction
+
+%% Function: BlockInstanceSetup ===============================================
+%% Abstract:
+%%   Pre-code generation work
+%%
+%function BlockInstanceSetup(block, system) void
+  %assign modelRef = LibIsModelReferenceTarget()
+  %if modelRef
+    %% don't generate component if model is referenced
+  %else
+    %<OrocompH()>
+
+    %<OrocompC()>
+  %endif
+%endfunction
+
+%% [EOF]

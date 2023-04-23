@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="ATC_ct_2nd"/>
+    <org.eventb.core.carrierSet name="(" org.eventb.core.comment="Set containing all the runways that the airport has (functional and non-fuctional)" org.eventb.core.identifier="RUNWAYS"/>
+    <org.eventb.core.axiom name=")" org.eventb.core.comment="The set of runways is a finite dimension set" org.eventb.core.label="axm1" org.eventb.core.predicate="finite(RUNWAYS)"/>
+    <org.eventb.core.axiom name="*" org.eventb.core.comment="The size of the runways set is equal to the number of runways the airport has" org.eventb.core.label="axm2" org.eventb.core.predicate="card(RUNWAYS) = nb_R"/>
+    <org.eventb.core.axiom name="+" org.eventb.core.comment="CON-2: The airport has at least one runway (i.e. RUNWAYS cannot be an empty set)" org.eventb.core.label="axm3" org.eventb.core.predicate="RUNWAYS ≠ ∅"/>
+</org.eventb.core.contextFile>

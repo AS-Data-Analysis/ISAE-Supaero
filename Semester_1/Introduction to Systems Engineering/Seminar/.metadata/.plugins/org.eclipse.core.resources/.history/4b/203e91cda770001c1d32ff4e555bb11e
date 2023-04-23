@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="ATC_mc_abs"/>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="ATC_ct"/>
+    <org.eventb.core.variable name=")" org.eventb.core.identifier="nb_runway"/>
+    <org.eventb.core.event name="*" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="nb_runway ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ 0" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="+" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Take-off with Planes on the runway">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Take-off"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_runway &gt; 0"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_runway ≤ nb_R"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_runway ≔ nb_runway − 1" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="Landing with available runways">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Landing"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_runway + nb_taxiway &lt; nb_max"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_runway &lt; nb_R"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_runway ≔ nb_runway + 1" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="nb_taxiway"/>
+    <org.eventb.core.invariant name="." org.eventb.core.label="inv1" org.eventb.core.predicate="nb_runway ∈ ℕ"/>
+    <org.eventb.core.invariant name="/" org.eventb.core.label="inv2" org.eventb.core.predicate="nb_taxiway ∈ ℕ"/>
+    <org.eventb.core.invariant name="0" org.eventb.core.label="inv3" org.eventb.core.predicate="nb_runway + nb_taxiway ≤ nb_max"/>
+    <org.eventb.core.event name="1" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Landing with full runways">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_runway + nb_taxiway &lt; nb_max"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_runway = nb_R"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway + 1" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="2" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Take-off with no planes on the runway">
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_runway = 0"/>
+        <org.eventb.core.guard name="(" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_taxiway &gt; 0"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_runway + nb_taxiway &lt; nb_max"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway − 1" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="3" org.eventb.core.identifier="nb_ground"/>
+</org.eventb.core.machineFile>

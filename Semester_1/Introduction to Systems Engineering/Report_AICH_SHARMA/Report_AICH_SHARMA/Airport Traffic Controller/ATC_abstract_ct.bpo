@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.poFile org.eventb.core.poStamp="0">
+    <org.eventb.core.poPredicateSet name="ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poIdentifier name="nb_max" org.eventb.core.type="ℤ"/>
+    </org.eventb.core.poPredicateSet>
+    <org.eventb.core.poPredicateSet name="ALLHYP" org.eventb.core.parentSet="/Airport Traffic Controller/ATC_abstract_ct.bpo|org.eventb.core.poFile#ATC_abstract_ct|org.eventb.core.poPredicateSet#ABSHYP" org.eventb.core.poStamp="0">
+        <org.eventb.core.poPredicate name="PRD0" org.eventb.core.predicate="nb_max∈ℕ" org.eventb.core.source="/Airport Traffic Controller/ATC_abstract_ct.buc|org.eventb.core.contextFile#ATC_abstract_ct|org.eventb.core.axiom#("/>
+        <org.eventb.core.poPredicate name="PRD1" org.eventb.core.predicate="nb_max=20" org.eventb.core.source="/Airport Traffic Controller/ATC_abstract_ct.buc|org.eventb.core.contextFile#ATC_abstract_ct|org.eventb.core.axiom#-"/>
+    </org.eventb.core.poPredicateSet>
+</org.eventb.core.poFile>

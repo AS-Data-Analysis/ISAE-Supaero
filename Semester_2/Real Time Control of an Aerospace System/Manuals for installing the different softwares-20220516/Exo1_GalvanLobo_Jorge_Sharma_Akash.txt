@@ -1,0 +1,366 @@
+Question 1.4 
+
+Creating the application mutexes .... 
+ Creating the application tasks .... 
+ Tasks .. created and launched
+
+counter= 20 time :201203.000  
+counter= 40 time :401137.000  
+counter= 60 time :601094.000  
+counter= 80 time :801670.000  
+counter= 100 time :1001317.000  
+counter= 120 time :1202113.000  
+counter= 140 time :1401002.000  
+counter= 160 time :1601023.000  
+counter= 180 time :1801025.000  
+counter= 200 time :2001172.000  
+counter= 220 time :2201002.000  
+counter= 240 time :2401025.000  
+counter= 260 time :2601374.000  
+counter= 280 time :2801373.000  
+counter= 300 time :3001029.000  
+counter= 320 time :3201003.000  
+counter= 340 time :3401008.000  
+counter= 360 time :3601042.000  
+counter= 380 time :3801217.000  
+counter= 400 time :4001001.000  
+counter= 420 time :4201115.000  
+counter= 440 time :4401198.000  
+counter= 460 time :4601100.000  
+counter= 480 time :4801007.000  
+counter= 500 time :5001365.000  
+counter= 520 time :5201006.000  
+counter= 540 time :5401074.000  
+counter= 560 time :5601003.000  
+counter= 580 time :5801290.000  
+counter= 600 time :6001402.000  
+counter= 620 time :6201426.000  
+counter= 640 time :6401051.000  
+counter= 660 time :6601038.000  
+counter= 680 time :6801056.000  
+counter= 700 time :7001656.000  
+counter= 720 time :7201747.000  
+counter= 740 time :7401208.000  
+counter= 760 time :7601830.000  
+counter= 780 time :7801022.000  
+counter= 800 time :8001802.000  
+counter= 820 time :8201022.000  
+counter= 840 time :8401780.000  
+counter= 860 time :8601680.000  
+counter= 880 time :8801029.000  
+counter= 900 time :9001030.000  
+counter= 920 time :9201034.000  
+counter= 940 time :9401042.000  
+counter= 960 time :9601861.000  
+counter= 980 time :9801088.000  
+counter= 1000 time :10001061.000  
+ total Duration =  10056082 µs  ( 10.056082 s )
+Task name : Producer, Priority : 6, Exectime MP en µs 1020176 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 1006
+Task name : Consumer, Priority : 5, Exectime MP en µs 2500500 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 301
+ Deleting the tasks .... 
+ Deleting the mutexes .... 
+ Application ..... finished --> exit
+
+RUN FINISHED; valeur renvoyée 0 ; real time: 10s; user: 0ms; system: 0ms
+
+
+Question 3.1
+
+Creating the application mutexes .... 
+ Creating the application tasks .... 
+ Tasks .. created and launched
+
+counter= 20 time :201132.000  
+counter= 40 time :401811.000  
+counter= 60 time :601036.000  
+counter= 80 time :801067.000  
+counter= 100 time :1001088.000  
+counter= 120 time :1201036.000  
+counter= 140 time :1401031.000  
+counter= 160 time :1601110.000  
+counter= 180 time :1801018.000  
+counter= 200 time :2001072.000  
+counter= 220 time :2201049.000  
+counter= 240 time :2401643.000  
+counter= 260 time :2601783.000  
+counter= 280 time :2801013.000  
+counter= 300 time :3001081.000  
+counter= 320 time :3201000.000  
+counter= 340 time :3401048.000  
+counter= 360 time :3601045.000  
+counter= 380 time :3801041.000  
+counter= 400 time :4001035.000  
+counter= 420 time :4201571.000  
+counter= 440 time :4401040.000  
+counter= 460 time :4601073.000  
+counter= 480 time :4801670.000  
+counter= 500 time :5001008.000  
+counter= 520 time :5201024.000  
+counter= 540 time :5401018.000  
+counter= 560 time :5601024.000  
+counter= 580 time :5801103.000  
+counter= 600 time :6001044.000  
+counter= 620 time :6201072.000  
+counter= 640 time :6401037.000  
+counter= 660 time :6601047.000  
+counter= 680 time :6801752.000  
+counter= 700 time :7001075.000  
+counter= 720 time :7201658.000  
+counter= 740 time :7401035.000  
+counter= 760 time :7601081.000  
+counter= 780 time :7801042.000  
+counter= 800 time :8001001.000  
+counter= 820 time :8201067.000  
+counter= 840 time :8401045.000  
+counter= 860 time :8602258.000  
+counter= 880 time :8802191.000  
+counter= 900 time :9001002.000  
+counter= 920 time :9201037.000  
+counter= 940 time :9401070.000  
+counter= 960 time :9601049.000  
+counter= 980 time :9801045.000  
+counter= 1000 time :10002167.000  
+ total Duration =  10168201 µs  ( 10.168201 s )
+Task name : Producer, Priority : 6, Exectime MP en µs 1026254 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 1017
+Task name : Consumer, Priority : 5, Exectime MP en µs 7500440 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 851
+ Deleting the tasks .... 
+ Deleting the mutexes .... 
+ Application ..... finished --> exit
+
+RUN FINISHED; valeur renvoyée 0 ; real time: 10s; user: 0ms; system: 0ms
+
+
+Question 4
+
+Consumer_capacity = 50,000
+
+Creating the application mutexes .... 
+ Creating the application tasks .... 
+ Tasks .. created and launched
+
+counter= 19 time :200058.000  
+counter= 34 time :400073.000  
+counter= 49 time :600057.000  
+counter= 64 time :800402.000  
+counter= 79 time :1000777.000  
+counter= 94 time :1200054.000  
+counter= 109 time :1400374.000  
+counter= 124 time :1600108.000  
+counter= 139 time :1800076.000  
+counter= 154 time :2000750.000  
+counter= 169 time :2200086.000  
+counter= 184 time :2400056.000  
+counter= 199 time :2600020.000  
+counter= 214 time :2800059.000  
+counter= 229 time :3000006.000  
+counter= 244 time :3200491.000  
+counter= 259 time :3400768.000  
+counter= 274 time :3600716.000  
+counter= 289 time :3800020.000  
+counter= 304 time :4000024.000  
+counter= 319 time :4200015.000  
+counter= 334 time :4400720.000  
+counter= 349 time :4600098.000  
+counter= 364 time :4800633.000  
+counter= 379 time :5000019.000  
+counter= 394 time :5200016.000  
+counter= 409 time :5400028.000  
+counter= 424 time :5600076.000  
+counter= 439 time :5800091.000  
+counter= 454 time :6000073.000  
+counter= 469 time :6200065.000  
+counter= 484 time :6400679.000  
+counter= 499 time :6600756.000  
+counter= 514 time :6800392.000  
+counter= 529 time :7000762.000  
+counter= 544 time :7200192.000  
+counter= 559 time :7400019.000  
+counter= 574 time :7600969.000  
+counter= 589 time :7800050.000  
+counter= 604 time :8000021.000  
+counter= 619 time :8200005.000  
+counter= 634 time :8400492.000  
+counter= 649 time :8600440.000  
+counter= 664 time :8800026.000  
+counter= 679 time :9000039.000  
+counter= 694 time :9200199.000  
+counter= 709 time :9400441.000  
+counter= 724 time :9600020.000  
+counter= 739 time :9800045.000  
+counter= 754 time :10000016.000  
+ total Duration =  10051034 µs  ( 10.051034 s )
+Task name : Producer, Priority : 6, Exectime MP en µs 793682 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 756
+Task name : Consumer, Priority : 7, Exectime MP en µs 2503347 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 51
+ Deleting the tasks .... 
+ Deleting the mutexes .... 
+ Application ..... finished --> exit
+
+RUN FINISHED; valeur renvoyée 0 ; real time: 10s; user: 0ms; system: 0ms
+
+Consumer_capacity = 150,000
+
+ Creating the application mutexes .... 
+ Creating the application tasks .... 
+ Tasks .. created and launched
+
+counter= 19 time :200283.000  
+counter= 24 time :401517.000  
+counter= 29 time :600587.000  
+counter= 34 time :800043.000  
+counter= 40 time :1000878.000  
+counter= 45 time :1201554.000  
+counter= 50 time :1400037.000  
+counter= 55 time :1600750.000  
+counter= 60 time :1801210.000  
+counter= 65 time :2000040.000  
+counter= 70 time :2200048.000  
+counter= 75 time :2400498.000  
+counter= 80 time :2600049.000  
+counter= 85 time :2800065.000  
+counter= 90 time :3001161.000  
+counter= 95 time :3200040.000  
+counter= 100 time :3400040.000  
+counter= 106 time :3600871.000  
+counter= 111 time :3800050.000  
+counter= 116 time :4000005.000  
+counter= 121 time :4200038.000  
+counter= 126 time :4400039.000  
+counter= 131 time :4600930.000  
+counter= 136 time :4800057.000  
+counter= 141 time :5000040.000  
+counter= 146 time :5201437.000  
+counter= 151 time :5400038.000  
+counter= 156 time :5600092.000  
+counter= 161 time :5800074.000  
+counter= 166 time :6000054.000  
+counter= 171 time :6200821.000  
+counter= 176 time :6400041.000  
+counter= 181 time :6600049.000  
+counter= 186 time :6801072.000  
+counter= 191 time :7000092.000  
+counter= 196 time :7201013.000  
+counter= 202 time :7400433.000  
+counter= 207 time :7600038.000  
+counter= 212 time :7800075.000  
+counter= 217 time :8000092.000  
+counter= 222 time :8200040.000  
+counter= 227 time :8401050.000  
+counter= 232 time :8600036.000  
+counter= 237 time :8800044.000  
+counter= 242 time :9000062.000  
+counter= 247 time :9200039.000  
+counter= 252 time :9400935.000  
+counter= 257 time :9600049.000  
+counter= 262 time :9800100.000  
+counter= 267 time :10000035.000  
+ total Duration =  10151071 µs  ( 10.151072 s )
+Task name : Producer, Priority : 6, Exectime MP en µs 271522 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 269
+Task name : Consumer, Priority : 7, Exectime MP en µs 7501812 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 51
+ Deleting the tasks .... 
+ Deleting the mutexes .... 
+ Application ..... finished --> exit
+
+RUN FINISHED; valeur renvoyée 0 ; real time: 10s; user: 0ms; system: 0ms
+
+
+Question 5.1
+
+ Creating the application mutexes .... 
+ Creating the application tasks .... 
+ Tasks .. created and launched
+
+counter= 20 time :2080701.000  
+counter= 40 time :4080381.000  
+counter= 60 time :6080653.000  
+ total Duration =  6560709 µs  ( 6.560710 s )
+Task name : Producer, Priority : 6, Exectime MP en µs 652641 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 66
+Task name : Consumer, Priority : 5, Exectime MP en µs 1500045 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 19
+ Deleting the tasks .... 
+ Deleting the mutexes .... 
+ Application ..... finished --> exit
+
+RUN FINISHED; valeur renvoyée 0 ; real time: 6s; user: 0ms; system: 0ms
+
+Question 5.3
+
+ Creating the application mutexes .... 
+ Creating the application tasks .... 
+ Tasks .. created and launched
+
+counter= 20 time :2480090.000  
+counter= 38 time :4480509.000  
+counter= 56 time :6480033.000  
+ total Duration =  6540046 µs  ( 6.540046 s )
+Task name : Producer, Priority : 7, Exectime MP en µs 591482 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 60
+Task name : Consumer, Priority : 5, Exectime MP en µs 1500044 
+Commutations P/S : 0 , Mode : 300184 , Context switches: 13
+ Deleting the tasks .... 
+ Deleting the mutexes .... 
+ Application ..... finished --> exit
+
+RUN FINISHED; valeur renvoyée 0 ; real time: 6s; user: 0ms; system: 0ms
+
+####CHEDDAR Console####
+
+
+Scheduling simulation, Processor cpu : 
+- Number of context switches :  12
+- Number of preemptions :  5
+
+- Task response time computed from simulation : 
+    cons => 560/worst 
+    prod => 10/worst 
+- No deadline missed in the computed scheduling : the task set is schedulable if you computed the scheduling on the feasibility interval.
+
+
+
+Scheduling simulation, Processor cpu : 
+- Number of context switches :  12
+- Number of preemptions :  5
+
+- Task response time computed from simulation : 
+    cons => 560/worst 
+    prod => 10/worst 
+- No deadline missed in the computed scheduling : the task set is schedulable if you computed the scheduling on the feasibility interval.
+
+
+
+Scheduling simulation, Processor cpu : 
+- Number of context switches :  6
+- Number of preemptions :  3
+
+- Task response time computed from simulation : 
+    cons => 560/worst 
+    prod => 370/worst ,  missed its deadline (absolute deadline =  200 ; completion time =  470),  missed its deadline (absolute deadline =  300 ; completion time =  480),  missed its deadline (absolute deadline =  400 ; completion time =  490)
+- Some task deadlines will be missed : the task set is not schedulable.
+
+
+
+Scheduling feasibility, Processor cpu : 
+1) Feasibility test based on the processor utilization factor : 
+
+- The feasibility interval is 2000.0, see Choquet-Geniet and Grolleau (2004), Bado et al. (2012) from [21].
+- 1300 units of time are unused in the feasibility interval.
+- Number of cores hosted by this processor :  1. 
+- Processor utilization factor with deadline is 0.35000 (see [1], page 6). 
+- Processor utilization factor with period is 0.35000 (see [1], page 6). 
+- In the preemptive case, with RM, the task set is schedulable because the processor utilization factor 0.35000 is equal or less than 1.00000 (see [19], page 13).
+
+
+2) Feasibility test based on worst case response time for periodic tasks : 
+
+- Worst case task response time :  (see [2], page 3, equation 4). 
+    prod => 10
+    cons => 560
+- All task deadlines will be met : the task set is schedulable.

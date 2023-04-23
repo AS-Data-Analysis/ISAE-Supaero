@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.event name="'" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="nb_ground ≔ 0" org.eventb.core.comment="initially there are no planes on the ground" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="ATC_abstract_ct"/>
+    <org.eventb.core.variable name=")" org.eventb.core.comment="total number of planes on the ground at any given time" org.eventb.core.identifier="nb_ground"/>
+    <org.eventb.core.invariant name="+" org.eventb.core.comment="number of planes on the ground  must a be positive quantity" org.eventb.core.label="inv1" org.eventb.core.predicate="nb_ground ∈ ℕ"/>
+    <org.eventb.core.invariant name="," org.eventb.core.comment="CON-1: the number of planes on ground is limited to max capcity" org.eventb.core.label="inv2" org.eventb.core.predicate="nb_ground ≤ nb_max"/>
+    <org.eventb.core.event name="." org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Take-off">
+        <org.eventb.core.guard name="'" org.eventb.core.comment="the must be atleast one plane on the ground" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &gt; 0"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground − 1" org.eventb.core.comment="the number of planes on the ground is decremented" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="/" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Landing">
+        <org.eventb.core.guard name="'" org.eventb.core.comment="the number of planes already on the ground must be less than the airport capacity" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &lt; nb_max"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground + 1" org.eventb.core.comment="the number of planes on the ground is incremented" org.eventb.core.label="act1"/>
+    </org.eventb.core.event>
+    <org.eventb.core.invariant name="0" org.eventb.core.comment="DeadLock Freedom Rule" org.eventb.core.label="DLF" org.eventb.core.predicate="(nb_ground &gt; 0) ∨ (nb_ground &lt; nb_max)" org.eventb.core.theorem="true"/>
+</org.eventb.core.machineFile>

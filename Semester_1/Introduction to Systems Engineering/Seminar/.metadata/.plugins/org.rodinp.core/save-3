@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<index_root>
+    <pim project="/Airport Traffic Controller">
+        <rodin_index>
+            <descriptor element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct" name="ATC_ct">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.seesContext#\/" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.target"/>
+                <occurrence element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#," name="Take_off">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#," kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-" name="Landing">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+            <descriptor element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc" name="ATC_mc">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc" kind="org.eventb.core.declaration"/>
+            </descriptor>
+            <descriptor element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.constant#'" name="nb_max">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.invariant#4" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="18" loc_char_start="12"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-|org.eventb.core.guard#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="18" loc_char_start="12"/>
+                <occurrence element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.constant#'" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.axiom#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="6" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.variable#3" name="nb_ground">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.invariant#2" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-|org.eventb.core.action#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="21" loc_char_start="12"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#,|org.eventb.core.action#)" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.assignment" loc_char_end="21" loc_char_start="12"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-|org.eventb.core.action#)" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="9" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#,|org.eventb.core.action#)" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="9" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.variable#3" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.identifier"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.invariant#4" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#'|org.eventb.core.action#'" kind="org.eventb.core.modification" loc_attribute="org.eventb.core.assignment" loc_char_end="9" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-|org.eventb.core.guard#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="0"/>
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#,|org.eventb.core.guard#(" kind="org.eventb.core.reference" loc_attribute="org.eventb.core.predicate" loc_char_end="9" loc_char_start="0"/>
+            </descriptor>
+            <descriptor element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#'" name="INITIALISATION">
+                <occurrence element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#'" kind="org.eventb.core.declaration" loc_attribute="org.eventb.core.label"/>
+            </descriptor>
+        </rodin_index>
+        <export_table>
+            <export file="/Airport Traffic Controller/ATC_mc.bum">
+                <exported element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#'" name="INITIALISATION"/>
+                <exported element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.constant#'" name="nb_max"/>
+                <exported element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct" name="ATC_ct"/>
+                <exported element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#," name="Take_off"/>
+                <exported element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc" name="ATC_mc"/>
+                <exported element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.event#-" name="Landing"/>
+                <exported element="/Airport Traffic Controller/ATC_mc.bum|org.eventb.core.machineFile#ATC_mc|org.eventb.core.variable#3" name="nb_ground"/>
+            </export>
+            <export file="/Airport Traffic Controller/ATC_ct.buc">
+                <exported element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct|org.eventb.core.constant#'" name="nb_max"/>
+                <exported element="/Airport Traffic Controller/ATC_ct.buc|org.eventb.core.contextFile#ATC_ct" name="ATC_ct"/>
+            </export>
+        </export_table>
+        <graph is_sorted="true">
+            <node label="/Airport Traffic Controller/ATC_ct.buc" mark="false" order_pos="0"/>
+            <node label="/Airport Traffic Controller/ATC_mc.bum" mark="false" order_pos="1">
+                <predecessor label="/Airport Traffic Controller/ATC_ct.buc"/>
+            </node>
+        </graph>
+        <unprocessed file="/Airport Traffic Controller/ATC_ct.bcc"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_ct.bpo"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_ct.bpr"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_ct.bps"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_mc.bcm"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_mc.bpo"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_mc.bpr"/>
+        <unprocessed file="/Airport Traffic Controller/ATC_mc.bps"/>
+    </pim>
+    <delta_list/>
+    <indexer_registry>
+        <registry_entry element_type="org.eventb.core.machineFile">
+            <indexer id="machineIndexer"/>
+        </registry_entry>
+        <registry_entry element_type="org.eventb.core.contextFile">
+            <indexer id="contextIndexer"/>
+        </registry_entry>
+    </indexer_registry>
+</index_root>

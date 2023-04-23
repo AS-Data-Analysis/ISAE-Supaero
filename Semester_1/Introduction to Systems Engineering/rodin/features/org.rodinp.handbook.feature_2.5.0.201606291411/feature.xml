@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.rodinp.handbook.feature"
+      label="Rodin Handbook v.2.5"
+      version="2.5.0.201606291411"
+      provider-name="Formal Mind GmbH">
+
+   <description url="http://www.example.com/description">
+      This handbook provides documentation for users of the Rodin toolset, which allows working with Event-B models. 
+
+Event-B is a formal method for system-level modelling and analysis. Key features of Event-B are the use of set theory as a modelling notation, the use of refinement to represent systems at different abstraction levels and the use of mathematical proof to verify consistency between refinement levels.
+
+The Rodin Platform is an Eclipse-based IDE for Event-B that provides effective support for refinement and mathematical proof. The
+platform is open source, contributes to the Eclipse framework and is further extensible with plugins.
+
+This handbook covers the use of the core platform. Documentation for developers and regarding extensions can be found in the Rodin
+wiki. 
+
+What you see here is a working draft of the documentation. We
+are grateful for any feedback that you may have.
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      (c) 2011 by Formal Mind GmbH and Others
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      This work is licensed under the Creative Commons Attribution Licens (CC BY).  The full license is found at
+
+http://creativecommons.org/licenses/by/3.0/
+   </license>
+
+   <url>
+      <discovery label="Formal Mind" url="http://formalmind.com"/>
+      <discovery label="Rodin Sourceforge" url="http://sourceforge.net/projects/rodin-b-sharp/"/>
+      <discovery label="Rodin Handbook" url="http://handbook.event-b.org"/>
+      <discovery label="Event-B" url="http://www.event-b.org"/>
+   </url>
+
+   <plugin
+         id="org.rodinp.handbook"
+         download-size="8993"
+         install-size="10679"
+         version="2.5.0.201606291411"/>
+
+</feature>

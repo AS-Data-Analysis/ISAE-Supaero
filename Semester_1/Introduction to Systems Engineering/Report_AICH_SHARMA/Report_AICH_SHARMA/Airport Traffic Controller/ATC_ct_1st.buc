@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.contextFile org.eventb.core.configuration="org.eventb.core.fwd;de.prob.symbolic.ctxBase" version="3">
+    <org.eventb.core.extendsContext name="'" org.eventb.core.target="ATC_abstract_ct"/>
+    <org.eventb.core.axiom name="(" org.eventb.core.comment="The number of runways is a positive number and there is at least one runway" org.eventb.core.label="axm1" org.eventb.core.predicate="nb_R ∈ ℕ1"/>
+    <org.eventb.core.constant de.prob.symbolic.symbolicAttribute="false" name=")" org.eventb.core.comment="Represents the number of runways the airport is equipped with" org.eventb.core.identifier="nb_R"/>
+    <org.eventb.core.axiom name="*" org.eventb.core.comment="The number of runways is set to a user-defined value" org.eventb.core.label="axm2" org.eventb.core.predicate="nb_R = 5"/>
+</org.eventb.core.contextFile>

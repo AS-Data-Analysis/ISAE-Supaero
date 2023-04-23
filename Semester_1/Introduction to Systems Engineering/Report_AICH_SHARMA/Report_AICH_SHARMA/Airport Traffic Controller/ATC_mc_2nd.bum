@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="ATC_ct_2nd"/>
+    <org.eventb.core.variable name="-" org.eventb.core.comment="total number of planes on taxiways" org.eventb.core.identifier="nb_taxiway"/>
+    <org.eventb.core.variable name="3" org.eventb.core.comment="total number of planes on the ground i.e. taxiways and runways" org.eventb.core.identifier="nb_ground"/>
+    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="nb_ground ≔ 0" org.eventb.core.comment="initially there are no planes on the ground" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nb_takeoff ≔ 0" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_landing ≔ 0" org.eventb.core.label="act4"/>
+        <org.eventb.core.action name="internal3" org.eventb.core.assignment="pl_rl ≔ ∅" org.eventb.core.comment="The sets of planes on the ground are initialised to empty sets" org.eventb.core.label="act5"/>
+        <org.eventb.core.action name="internal4" org.eventb.core.assignment="pl_t ≔ ∅" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="internal5" org.eventb.core.assignment="pl_rt ≔ ∅" org.eventb.core.label="act7"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="7" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Enter_rwy">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Taxi-Out"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway − 1" org.eventb.core.comment="the number of planes on the taxiway is decremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name="internal5" org.eventb.core.comment="there must be planes on the taxiway" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_taxiway &gt; 0"/>
+        <org.eventb.core.guard name="internal6" org.eventb.core.comment="there must be a free runway" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff + nb_landing &lt; nb_R"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="nb_takeoff ≔ nb_takeoff + 1" org.eventb.core.comment="the number of planes on the runway ready to takeoff is incremented" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="there must be planes on the taxiway" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_taxiway &gt; 0"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="there must be a free runway" org.eventb.core.label="grd4" org.eventb.core.predicate="nb_takeoff + nb_landing &lt; nb_R"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="A plane currently on the taxiway" org.eventb.core.label="grd5" org.eventb.core.predicate="p ∈ pl_t"/>
+        <org.eventb.core.guard name="internal3" org.eventb.core.comment="Taxiway planes is a non-empty set" org.eventb.core.label="grd6" org.eventb.core.predicate="card(pl_t) &gt; 0"/>
+        <org.eventb.core.guard name="internal4" org.eventb.core.comment="The number of planes on the runways should be less than number of runways (i.e. a runway must be free)" org.eventb.core.label="grd7" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) &lt; nb_R"/>
+        <org.eventb.core.action name="internal7" org.eventb.core.assignment="pl_rt ≔ pl_rt ∪ {p}" org.eventb.core.comment="Add the particular plane to the set of takeoff planes" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="internal8" org.eventb.core.assignment="pl_t ≔ pl_t∖{p}" org.eventb.core.comment="Remove the particular plane from the set of taxiway planes" org.eventb.core.label="act4"/>
+        <org.eventb.core.parameter name="internal9" org.eventb.core.comment="Parameter to denote an element of the sets Planes" org.eventb.core.identifier="p"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="8" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="TakeOff">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Take-off"/>
+        <org.eventb.core.guard name="'" org.eventb.core.comment="the must be atleast one plane on the ground" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &gt; 0"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground − 1" org.eventb.core.comment="the number of planes on the ground is decremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_takeoff ≔ nb_takeoff − 1" org.eventb.core.comment="the number of planes on the takeoff runway is decremented" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="there must be planes on the runway ready to takeoff" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff &gt; 0"/>
+        <org.eventb.core.guard name="." org.eventb.core.comment="A plane currently on the takeoff runway" org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ pl_rt"/>
+        <org.eventb.core.guard name="/" org.eventb.core.comment="Takeoff runway planes is a non-empty set" org.eventb.core.label="grd4" org.eventb.core.predicate="card(pl_rt) &gt; 0"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="pl_rt ≔ pl_rt∖{p}" org.eventb.core.comment="Remove the particular plane from the set of takeoff planes" org.eventb.core.label="act3"/>
+        <org.eventb.core.parameter name="1" org.eventb.core.comment="Parameter to denote an element of the sets Planes" org.eventb.core.identifier="p"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="9" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Land">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Landing"/>
+        <org.eventb.core.guard name="'" org.eventb.core.comment="the number of planes already on the ground must be less than the airport capacity" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &lt; nb_max"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground + 1" org.eventb.core.comment="the number of planes on the ground is incremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_landing ≔ nb_landing + 1" org.eventb.core.comment="the number of planes on the landing runway is incremented" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="+" org.eventb.core.comment="there must be a free runway" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff + nb_landing &lt; nb_R"/>
+        <org.eventb.core.guard name="internal3" org.eventb.core.comment="CON-1: number of planes on the ground is 20 max" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_takeoff + nb_landing + nb_taxiway &lt; nb_max"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.comment="Parameter to denote an element of the sets Planes" org.eventb.core.identifier="p"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="The planes on the runways should be less than number of runways (i.e. a runway must be free)" org.eventb.core.label="grd4" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) &lt; nb_R"/>
+        <org.eventb.core.guard name="-" org.eventb.core.comment="A plane currently not on the ground" org.eventb.core.label="grd5" org.eventb.core.predicate="p ∈ PLANES∖(pl_rt ∪ pl_rl ∪ pl_t)"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="pl_rl ≔ pl_rl ∪ {p}" org.eventb.core.comment="Add the particular plane to the set of landing planes" org.eventb.core.label="act3"/>
+        <org.eventb.core.guard name="internal2" org.eventb.core.comment="The number of planes on the ground should be less than 20 (CON-1 refined)" org.eventb.core.label="grd6" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) + card(pl_t) &lt; nb_max"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name=":" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Leav_rwy">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Taxi_In"/>
+        <org.eventb.core.guard name="'" org.eventb.core.comment="there must be planes that have landed on the runway" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_landing &gt; 0"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway + 1" org.eventb.core.comment="the number of planes on the taxiway is incremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nb_landing ≔ nb_landing − 1" org.eventb.core.comment="the number of planes on the landing runway is decremented" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="A plane currently on the landing runway" org.eventb.core.label="grd2" org.eventb.core.predicate="p ∈ pl_rl"/>
+        <org.eventb.core.parameter name="+" org.eventb.core.comment="Parameter to denote an element of the sets Planes" org.eventb.core.identifier="p"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="pl_rl ≔ pl_rl∖{p}" org.eventb.core.comment="Remove the particular plane from the set of landing planes" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="pl_t ≔ pl_t ∪ {p}" org.eventb.core.comment="Add the particular plane to the set of taxiway planes" org.eventb.core.label="act4"/>
+        <org.eventb.core.guard name="." org.eventb.core.comment="Landing runway planes is a non-empty set" org.eventb.core.label="grd3" org.eventb.core.predicate="card(pl_rl) &gt; 0"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="&gt;" org.eventb.core.comment="set containing all planes that are on the runway ready to takeoff" org.eventb.core.identifier="pl_rt"/>
+    <org.eventb.core.variable name="?" org.eventb.core.comment="set containing all planes that have landed on the runway" org.eventb.core.identifier="pl_rl"/>
+    <org.eventb.core.variable name="@" org.eventb.core.comment="set containing all planes that are on the taxiway" org.eventb.core.identifier="pl_t"/>
+    <org.eventb.core.invariant name="A" org.eventb.core.comment="Planes is the superset containing all planes in the airport, and the previously defined sets are subsets of it" org.eventb.core.label="inv1" org.eventb.core.predicate="pl_rt ⊆ PLANES"/>
+    <org.eventb.core.invariant name="B" org.eventb.core.label="inv2" org.eventb.core.predicate="pl_rl ⊆ PLANES"/>
+    <org.eventb.core.invariant name="C" org.eventb.core.label="inv3" org.eventb.core.predicate="pl_t ⊆ PLANES"/>
+    <org.eventb.core.invariant name="H" org.eventb.core.comment="-&gt; Glue Invariant" org.eventb.core.label="inv4" org.eventb.core.predicate="card(pl_t) = nb_taxiway"/>
+    <org.eventb.core.invariant name="L" org.eventb.core.comment="-&gt; Glue Invariant" org.eventb.core.label="inv5" org.eventb.core.predicate="card(pl_rt) = nb_takeoff"/>
+    <org.eventb.core.invariant name="M" org.eventb.core.comment="-&gt; Glue Invariant" org.eventb.core.label="inv6" org.eventb.core.predicate="card(pl_rl) = nb_landing"/>
+    <org.eventb.core.variable name="N" org.eventb.core.comment="total number of planes that are on runways ready to takeoff" org.eventb.core.identifier="nb_takeoff"/>
+    <org.eventb.core.variable name="Q" org.eventb.core.comment="total number of planes that have landed on runways" org.eventb.core.identifier="nb_landing"/>
+    <org.eventb.core.invariant name="S" org.eventb.core.comment="The sets of planes on the take-off runways, the landing runways and the taxiway are all disjoint" org.eventb.core.label="inv7" org.eventb.core.predicate="pl_rt ∩ pl_rl = ∅"/>
+    <org.eventb.core.invariant name="T" org.eventb.core.comment="i.e. a plane can either be taking off, or be landing or be in the taxiway" org.eventb.core.label="inv8" org.eventb.core.predicate="pl_rt ∩ pl_t = ∅"/>
+    <org.eventb.core.invariant name="U" org.eventb.core.label="inv9" org.eventb.core.predicate="pl_rl ∩ pl_t = ∅"/>
+    <org.eventb.core.invariant name="W" org.eventb.core.comment="DeadLock Freedom Rule" org.eventb.core.label="DLF" org.eventb.core.predicate="∃p·p ∈ PLANES ⇒ (card(pl_t) &gt; 0 ∧ p ∈ pl_t ∧ (card(pl_rt) + card(pl_rl) &lt; nb_R)) ∨ (p ∈ pl_rt ∧ card(pl_rt) &gt; 0) ∨ ((card(pl_rt) + card(pl_rl) + card(pl_t) &lt; nb_max) ∧ (card(pl_rt) + card(pl_rl) &lt; nb_R) ∧ p ∈ PLANES∖(pl_rt ∪ pl_rl ∪ pl_t)) ∨ (card(pl_rl) &gt; 0 ∧ p ∈ pl_rl)" org.eventb.core.theorem="true"/>
+    <org.eventb.core.refinesMachine name="V" org.eventb.core.target="ATC_mc_1st"/>
+</org.eventb.core.machineFile>

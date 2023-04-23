@@ -1,0 +1,109 @@
+%%==========================================================================
+%% (c)2013 Institut Superieur de l'Aeronautique et de l'Espace
+%%    Laurent Alloza (laurent.alloza(a)isae.fr)
+%%    Version 1.0 (R2012b)
+%%    Date : 08/2013
+%%==========================================================================
+%% Description:
+%%   functions for orocos InputPort(s).
+%%==========================================================================
+
+%% Function: DeclareInputs =================================================
+%%
+%% Purpose:
+%%    Add external inputs to component class declaration
+%function DeclareInputs() Output
+  %openfile txtBuf
+  %foreach idx = ExternalInputs.NumExternalInputs
+    %assign extInp = ExternalInputs.ExternalInput[idx]
+    %with extInp
+      %assign id = LibGetRecordIdentifier(extInp)
+      %assign inpStruct  = LibGetExternalInputStruct()
+      %assign portWidth  = LibGetRecordWidth(extInp)
+      %assign isComplex  = LibGetRecordIsComplex(extInp)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(extInp))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      %if portWidth == 1
+      InputPort< %<DataType> > %<id>;
+      %else %% portWidth > 1
+      InputPort< vector< %<DataType> > > %<id>;
+      %endif
+    %endwith %% extInp
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction
+%% Function: AddInputs =================================================
+%%
+%% Purpose:
+%%    Add external inputs to component class constructor
+%function AddInputs() Output
+  %openfile txtBuf
+  %foreach idx = ExternalInputs.NumExternalInputs
+    %assign extInp = ExternalInputs.ExternalInput[idx]
+    %with extInp
+      %assign id = LibGetRecordIdentifier(extInp)
+      %assign inpStruct  = LibGetExternalInputStruct()
+      %assign portWidth  = LibGetRecordWidth(extInp)
+      %assign isComplex  = LibGetRecordIsComplex(extInp)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(extInp))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      %if portWidth == 1
+      this->ports()->addPort( "%<id>", %<id> ).doc("%<id> : InputPort< %<DataType> >" );
+      %else %% portWidth > 1
+      this->ports()->addPort( "%<id>", %<id> ).doc("%<id> : InputPort< vector<%<DataType>>(%<portWidth>) >" );
+      %endif
+    %endwith %% extInp
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction
+%% Function: ReadInputs =================================================
+%%
+%% Purpose:
+%%    Add external inputs to component class updateHook
+%function ReadInputs() Output
+  %openfile txtBuf
+  %foreach idx = ExternalInputs.NumExternalInputs
+    %assign extInp = ExternalInputs.ExternalInput[idx]
+    %with extInp
+      %assign id = LibGetRecordIdentifier(extInp)
+      %assign inpStruct  = LibGetExternalInputStruct()
+      %assign portWidth  = LibGetRecordWidth(extInp)
+      %assign isComplex  = LibGetRecordIsComplex(extInp)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(extInp))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      {
+      // Read InputPort %<id>
+      %if portWidth == 1
+        %<DataType> value;
+        if(%<id>.read(value) == NewData) {
+          %<inpStruct>.%<id> = value;
+        }
+      %elseif portWidth < RollThreshold
+        vector< %<DataType> > value;
+        if(%<id>.read(value) == NewData) {
+        %foreach sigIdx = portWidth
+          %<inpStruct>.%<id>[%<sigIdx>] = value[%<sigIdx>];
+        %endforeach
+        }
+      %else %% portWidth > RollThreshold
+        vector< %<DataType> > value;
+        if(%<id>.read(value) == NewData) {
+          for(int i = 0; i < %<portWidth>; i++) {
+            %<inpStruct>.%<id>[i] =  value[i];
+          }
+        }
+      %endif
+      }
+    %endwith %% extInp
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction

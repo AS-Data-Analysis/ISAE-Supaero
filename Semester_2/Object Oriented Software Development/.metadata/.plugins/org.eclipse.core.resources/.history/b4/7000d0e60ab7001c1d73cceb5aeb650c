@@ -1,0 +1,39 @@
+
+public class Rectangle extends Shape {
+
+    public Rectangle(double xpos, double ypos, double length, double breadth) {
+    	super(xpos, ypos);
+    	this.length=length;
+    	this.breadth=breadth;
+    }
+
+    private double length;
+    static final int r;
+
+    public double getLength() {
+		return length;
+	}
+
+	public void setLength(double length) {
+		this.length = length;
+	}
+
+	public double getBreadth() {
+		return breadth;
+	}
+
+	public void setBreadth(double breadth) {
+		this.breadth = breadth;
+	}
+
+    private double breadth;
+
+    public double perimeter() {
+        return 2*(this.length + this.breadth);
+    }
+
+    public double area() {
+        return this.length*this.breadth;
+    }
+
+}

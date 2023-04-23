@@ -1,0 +1,25 @@
+clear all
+clc
+close all
+
+% Time matrix
+Time = (0:0.02:2)';
+d2r= pi/180;
+% x matrix
+pn = linspace(0,4,101)';
+pd = ones(101,1);
+vn = [linspace(0,2,50) linspace(2,0,51)]';
+vd = zeros(1,101)';
+the = [linspace(0,10*d2r,50) linspace(10*d2r,0,51)]';
+gam = [linspace(0,5*d2r,50) linspace(5*d2r,0,51)]';
+
+x = [pn pd vn vd the gam];
+
+% u matrix
+
+u = 2*ones(101,2);
+
+InitialGuess_drone = struct('Time',Time,'x',x,'u',u);
+save InitialGuess_drone.mat InitialGuess_drone
+
+clear pn pd vn vd he gam

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.prFile version="1">
+    <org.eventb.core.prProof name="INITIALISATION/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps=""/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈ℕ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="⊤ goal" org.eventb.core.prGoal="p1" org.eventb.core.prHyps=""/>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0∈ℕ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="⊤"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.trueGoal"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p3">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p3" org.eventb.core.prHyps="p1,p2">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="0≤nb_max"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="0+0≤nb_max"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Take-off/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p5,p3,p4,p6">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nb_runway − 1∈ℕ"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nb_runway&gt;0"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Take-off/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p3,p4,p7,p2,p8,p5,p6,p9,p1">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_R" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_runway≤nb_R"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_R=10"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nb_R∈ℕ"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nb_runway&gt;0"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nb_runway − 1+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Landing/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p5,p3,p4">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nb_runway+1∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Landing/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p1"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_runway+1+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(nb_runway+1)+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Take-off/inv2/INV"/>
+    <org.eventb.core.prProof name="Landing with available runways/inv1/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p3,p6,p1,p7,p4,p5,p8">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_R" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_R=10"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nb_runway+1∈ℕ"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nb_R∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nb_runway&lt;nb_R"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Landing with available runways/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p2,p3,p7,p1,p8,p4,p5,p6,p9">
+                    <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_R" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_R=10"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nb_runway+nb_taxiway&lt;nb_max"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nb_R∈ℕ"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="nb_runway+1+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="(nb_runway+1)+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nb_runway&lt;nb_R"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Landing with full runways/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p2,p3,p6,p1,p7,p4,p5">
+            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_R" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_R=10"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nb_taxiway+1∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nb_R∈ℕ"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Landing with full runways/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.prFresh="" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="p1,p2,p3,p4,p5,p6,p7,p8,p9">
+        <org.eventb.core.lang name="L"/>
+        <org.eventb.core.prRule name="r0" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="simplification rewrites" org.eventb.core.prGoal="p0" org.eventb.core.prHyps="">
+            <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p10">
+                <org.eventb.core.prRule name="r1" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="eh with nb_runway=nb_R" org.eventb.core.prGoal="p10" org.eventb.core.prHyps="p9">
+                    <org.eventb.core.prAnte name="'" org.eventb.core.prGoal="p13">
+                        <org.eventb.core.prHypAction name="FORWARD_INF0" org.eventb.core.prHyps="p5" org.eventb.core.prInfHyps="p11"/>
+                        <org.eventb.core.prHypAction name="FORWARD_INF1" org.eventb.core.prHyps="p6" org.eventb.core.prInfHyps="p12"/>
+                        <org.eventb.core.prHypAction name="DESELECT2" org.eventb.core.prHyps="p5,p6"/>
+                        <org.eventb.core.prRule name="r2" org.eventb.core.confidence="1000" org.eventb.core.prDisplay="ML" org.eventb.core.prGoal="p13" org.eventb.core.prHyps="p2,p3,p7,p1,p8,p4,p5,p6,p9,p11,p12">
+                            <org.eventb.core.prString name=".arg" org.eventb.core.prSValue="0;1:500"/>
+                        </org.eventb.core.prRule>
+                    </org.eventb.core.prAnte>
+                </org.eventb.core.prRule>
+            </org.eventb.core.prAnte>
+        </org.eventb.core.prRule>
+        <org.eventb.core.prIdent name="nb_R" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_max" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_runway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prIdent name="nb_taxiway" org.eventb.core.type="ℤ"/>
+        <org.eventb.core.prPred name="p0" org.eventb.core.predicate="nb_runway+(nb_taxiway+1)≤nb_max"/>
+        <org.eventb.core.prPred name="p7" org.eventb.core.predicate="nb_R∈ℕ"/>
+        <org.eventb.core.prPred name="p11" org.eventb.core.predicate="nb_R+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p12" org.eventb.core.predicate="nb_R+nb_taxiway&lt;nb_max"/>
+        <org.eventb.core.prPred name="p1" org.eventb.core.predicate="nb_R=10"/>
+        <org.eventb.core.prPred name="p10" org.eventb.core.predicate="nb_runway+nb_taxiway+1≤nb_max"/>
+        <org.eventb.core.prPred name="p2" org.eventb.core.predicate="nb_max∈ℕ"/>
+        <org.eventb.core.prPred name="p3" org.eventb.core.predicate="nb_max=20"/>
+        <org.eventb.core.prPred name="p4" org.eventb.core.predicate="nb_taxiway∈ℕ"/>
+        <org.eventb.core.prPred name="p5" org.eventb.core.predicate="nb_runway+nb_taxiway≤nb_max"/>
+        <org.eventb.core.prPred name="p6" org.eventb.core.predicate="nb_runway+nb_taxiway&lt;nb_max"/>
+        <org.eventb.core.prPred name="p13" org.eventb.core.predicate="nb_R+nb_taxiway+1≤nb_max"/>
+        <org.eventb.core.prPred name="p8" org.eventb.core.predicate="nb_runway∈ℕ"/>
+        <org.eventb.core.prPred name="p9" org.eventb.core.predicate="nb_runway=nb_R"/>
+        <org.eventb.core.prReas name="r1" org.eventb.core.prRID="org.eventb.core.seqprover.eq:1"/>
+        <org.eventb.core.prReas name="r2" org.eventb.core.prRID="com.clearsy.atelierb.provers.core.externalML:1"/>
+        <org.eventb.core.prReas name="r0" org.eventb.core.prRID="org.eventb.core.seqprover.autoRewritesL4:0"/>
+    </org.eventb.core.prProof>
+    <org.eventb.core.prProof name="Landing/inv2/INV"/>
+</org.eventb.core.prFile>

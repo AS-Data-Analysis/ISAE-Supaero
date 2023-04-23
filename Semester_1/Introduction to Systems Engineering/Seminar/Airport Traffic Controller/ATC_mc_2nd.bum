@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="ATC_mc_1st"/>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="ATC_ct_extended"/>
+    <org.eventb.core.variable name="-" org.eventb.core.identifier="nb_taxiway"/>
+    <org.eventb.core.variable name="3" org.eventb.core.identifier="nb_ground"/>
+    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="internal3" org.eventb.core.assignment="pl_rl ≔ ∅" org.eventb.core.label="act6"/>
+        <org.eventb.core.action name="internal4" org.eventb.core.assignment="pl_t ≔ ∅" org.eventb.core.label="act7"/>
+        <org.eventb.core.action name="internal5" org.eventb.core.assignment="pl_rt ≔ ∅" org.eventb.core.label="act8"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="7" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Enter_rwy">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Taxi-Out"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_taxiway &gt; 0"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_takeoff + nb_landing ≤ nb_R"/>
+        <org.eventb.core.parameter name="," org.eventb.core.identifier="p"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd4" org.eventb.core.predicate="p ∈ pl_t"/>
+        <org.eventb.core.guard name="internal3" org.eventb.core.label="grd5" org.eventb.core.predicate="card(pl_t) &gt; 0"/>
+        <org.eventb.core.guard name="internal4" org.eventb.core.label="grd6" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) &lt; nb_R"/>
+        <org.eventb.core.action name="internal5" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway − 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="internal6" org.eventb.core.assignment="nb_takeoff ≔ nb_takeoff + 1" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name="internal7" org.eventb.core.assignment="pl_t ≔ pl_t∖{p}" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="internal8" org.eventb.core.assignment="pl_rt ≔ pl_rt ∪ {p}" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="8" org.eventb.core.convergence="0" org.eventb.core.extended="true" org.eventb.core.label="TakeOff">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Take-off"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd5" org.eventb.core.predicate="p ∈ pl_rt"/>
+        <org.eventb.core.guard name="/" org.eventb.core.label="grd6" org.eventb.core.predicate="card(pl_rt) &gt; 0"/>
+        <org.eventb.core.action name="0" org.eventb.core.assignment="pl_rt ≔ pl_rt∖{p}" org.eventb.core.label="act3"/>
+        <org.eventb.core.parameter name="1" org.eventb.core.identifier="p"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="9" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Land">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Landing"/>
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &lt; nb_max"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_landing ≔ nb_landing + 1" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="+" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff + nb_landing &lt; nb_R"/>
+        <org.eventb.core.parameter name="(" org.eventb.core.identifier="p"/>
+        <org.eventb.core.guard name=")" org.eventb.core.label="grd3" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) + card(pl_t) &lt; nb_max"/>
+        <org.eventb.core.guard name="," org.eventb.core.label="grd4" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) &lt; nb_R"/>
+        <org.eventb.core.guard name="-" org.eventb.core.label="grd5" org.eventb.core.predicate="p ∈ PLANES∖(pl_rt ∪ pl_rl ∪ pl_t)"/>
+        <org.eventb.core.action name="." org.eventb.core.assignment="pl_rl ≔ pl_rl ∪ {p}" org.eventb.core.label="act3"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name=":" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Leav_rwy">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Taxi_In"/>
+        <org.eventb.core.guard name="'" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_landing &gt; 0"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway + 1" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nb_landing ≔ nb_landing − 1" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="*" org.eventb.core.label="grd2" org.eventb.core.predicate="card(pl_rl) &gt; 0"/>
+        <org.eventb.core.parameter name="+" org.eventb.core.identifier="p"/>
+        <org.eventb.core.action name="," org.eventb.core.assignment="pl_t ≔ pl_t ∪ {p}" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="-" org.eventb.core.assignment="pl_rl ≔ pl_rl∖{p}" org.eventb.core.label="act4"/>
+        <org.eventb.core.guard name="." org.eventb.core.label="grd3" org.eventb.core.predicate="p ∈ pl_rl"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="&gt;" org.eventb.core.identifier="pl_rt"/>
+    <org.eventb.core.variable name="?" org.eventb.core.identifier="pl_rl"/>
+    <org.eventb.core.variable name="@" org.eventb.core.identifier="pl_t"/>
+    <org.eventb.core.invariant name="A" org.eventb.core.label="inv1" org.eventb.core.predicate="pl_rt ⊂ PLANES"/>
+    <org.eventb.core.invariant name="B" org.eventb.core.label="inv2" org.eventb.core.predicate="pl_rl ⊂ PLANES"/>
+    <org.eventb.core.invariant name="C" org.eventb.core.label="inv3" org.eventb.core.predicate="pl_t ⊂ PLANES"/>
+    <org.eventb.core.invariant name="D" org.eventb.core.comment="Glue Invariant" org.eventb.core.label="inv4" org.eventb.core.predicate="card(pl_rt) = nb_takeoff"/>
+    <org.eventb.core.variable name="E" org.eventb.core.identifier="nb_takeoff"/>
+    <org.eventb.core.variable name="F" org.eventb.core.identifier="nb_landing"/>
+    <org.eventb.core.invariant name="G" org.eventb.core.comment="Glue Invariant" org.eventb.core.label="inv5" org.eventb.core.predicate="card(pl_rl) = nb_landing"/>
+    <org.eventb.core.invariant name="H" org.eventb.core.comment="Glue Invariant" org.eventb.core.label="inv6" org.eventb.core.predicate="card(pl_t) = nb_taxiway"/>
+    <org.eventb.core.invariant name="I" org.eventb.core.label="inv7" org.eventb.core.predicate="finite(pl_rt)"/>
+    <org.eventb.core.invariant name="J" org.eventb.core.label="inv8" org.eventb.core.predicate="finite(pl_rl)"/>
+    <org.eventb.core.invariant name="K" org.eventb.core.label="inv9" org.eventb.core.predicate="finite(pl_t)"/>
+    <org.eventb.core.invariant name="L" org.eventb.core.label="inv10" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) ≤ nb_R"/>
+    <org.eventb.core.invariant name="M" org.eventb.core.label="inv11" org.eventb.core.predicate="card(pl_rt) + card(pl_rl) + card(pl_t) ≤ nb_max"/>
+</org.eventb.core.machineFile>

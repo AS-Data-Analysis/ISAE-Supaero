@@ -1,0 +1,108 @@
+%%==========================================================================
+%% (c)2013 Institut Superieur de l'Aeronautique et de l'Espace
+%%    Laurent Alloza (laurent.alloza(a)isae.fr)
+%%    Version 1.0 (R2012b)
+%%    Date : 09/2013
+%%==========================================================================
+%% Description:
+%%   functions for orocos OutputPort(s).
+%%==========================================================================
+
+%% Function: DeclareOutputs =================================================
+%%
+%% Purpose:
+%%    Add external outputs to component class declaration
+%function DeclareOutputs() Output
+  %openfile txtBuf
+  %foreach idx = ExternalOutputs.NumExternalOutputs
+    %assign outStruct  = LibGetExternalOutputStruct()
+    %assign extOut = ExternalOutputs.ExternalOutput[idx]
+    %with extOut
+      %assign id = LibGetRecordIdentifier(extOut)
+      %assign portWidth  = LibGetRecordWidth(extOut)
+      %assign isComplex  = LibGetRecordIsComplex(extOut)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(extOut))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      %if portWidth == 1
+      OutputPort< %<DataType> > %<id>;
+      %else %% portWidth > 1
+      OutputPort< vector< %<DataType> > > %<id>;
+      %endif
+    %endwith %% extOut
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction
+%% Function: AddOutputs =================================================
+%%
+%% Purpose:
+%%    Add external outputs to component class constructor
+%function AddOutputs() Output
+  %openfile txtBuf
+  %foreach idx = ExternalOutputs.NumExternalOutputs
+    %assign outStruct  = LibGetExternalOutputStruct()
+    %assign extOut = ExternalOutputs.ExternalOutput[idx]
+    %with extOut
+      %assign id = LibGetRecordIdentifier(extOut)
+      %assign portWidth  = LibGetRecordWidth(extOut)
+      %assign isComplex  = LibGetRecordIsComplex(extOut)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(extOut))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      %if portWidth == 1
+      this->ports()->addPort( "%<id>", %<id> ).doc("%<id> : OutputPort< %<DataType> >" );
+      %else %% portWidth > 1
+      {
+      this->ports()->addPort( "%<id>", %<id> ).doc("%<id> : OutputPort< vector<%<DataType>>(%<portWidth>) >" );
+      // Set the dimension of the port.
+      vector< %<DataType> > sample(%<portWidth>);
+      this->%<id>.setDataSample( sample );
+      }
+      %endif
+    %endwith %% extOut
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction
+%% Function: WriteOutputs =================================================
+%%
+%% Purpose:
+%%    Add external outputs to component class updateHook
+%function WriteOutputs() Output
+  %openfile txtBuf
+  %foreach idx = ExternalOutputs.NumExternalOutputs
+    %assign outStruct = LibGetExternalOutputStruct()
+    %assign extOut = ExternalOutputs.ExternalOutput[idx]
+    %with extOut
+      %assign id = LibGetRecordIdentifier(extOut)
+      %assign portWidth  = LibGetRecordWidth(extOut)
+      %assign isComplex  = LibGetRecordIsComplex(extOut)
+      %assign DataType   = LibGetDataTypeNameFromId(LibGetRecordDataTypeId(extOut))
+      %if isComplex
+        %assign DataType = "c" + DataType
+      %endif
+      {
+      // Write OutputPort %<id>
+      %if portWidth == 1
+        %<DataType> value = %<outStruct>.%<id>;
+      %elseif portWidth < RollThreshold
+        vector< %<DataType> > value(%<portWidth>);
+        %foreach sigIdx = portWidth
+        value[%<sigIdx>] = %<outStruct>.%<id>[%<sigIdx>];
+        %endforeach
+      %else %% portWidth > RollThreshold
+        vector< %<DataType> > value(%<portWidth>);
+        for(int i = 0; i < %<portWidth>; i++) {
+          value[i] = %<outStruct>.%<id>[i];
+        }
+      %endif
+      %<id>.write(value);
+      }
+    %endwith %% extOut
+  %endforeach
+  %closefile txtBuf
+  %return txtBuf
+%endfunction

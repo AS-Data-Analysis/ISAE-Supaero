@@ -1,0 +1,112 @@
+#VRML V2.0 utf8
+
+PROTO LightOakAppearance [
+]
+{
+  Appearance {
+    material Material {
+      diffuseColor 1 0.65 0.53
+    }
+  }
+}
+
+PROTO ShinyBluePaint [
+]
+{
+  Appearance {
+    material Material {
+      shininess 0.1
+      diffuseColor 0 0 1
+    }
+  }
+}
+
+PROTO Pied [
+]
+{
+  Shape {
+    appearance ShinyBluePaint {
+    }
+    geometry Cylinder {
+      top FALSE
+      radius 2.5
+      height 73
+      bottom FALSE
+    }
+  }
+}
+
+DEF Table70x50 Group {
+  children [
+    DEF Plateau Transform {
+      translation 0 74 0
+      children Shape {
+        appearance LightOakAppearance {
+        }
+        geometry Box {
+          size 70 2 50
+        }
+      }
+    }
+    DEF PiedAvantDroit Transform {
+      translation 30 36.5 20
+      children Pied {
+      }
+    }
+    DEF PiedAvantGauche Transform {
+      translation -30 36.5 20
+      children Pied {
+      }
+    }
+    DEF PiedArriereDroit Transform {
+      translation 30 36.5 -20
+      children Pied {
+      }
+    }
+    DEF PiedArriereGauche Transform {
+      translation -30 36.5 -20
+      children Pied {
+      }
+    }
+    DEF BarreAvant Transform {
+      translation 0 70.5 20
+      children Shape {
+        appearance ShinyBluePaint {
+        }
+        geometry Box {
+          size 57 5 2
+        }
+      }
+    }
+    DEF BarreArriere Transform {
+      translation 0 70.5 -20
+      children Shape {
+        appearance ShinyBluePaint {
+        }
+        geometry Box {
+          size 57 5 2
+        }
+      }
+    }
+    DEF BarreDroite Transform {
+      translation 30 70.5 0
+      children Shape {
+        appearance ShinyBluePaint {
+        }
+        geometry Box {
+          size 2 5 38
+        }
+      }
+    }
+    DEF BarreGauche Transform {
+      translation -30 70.5 0
+      children Shape {
+        appearance ShinyBluePaint {
+        }
+        geometry Box {
+          size 2 5 38
+        }
+      }
+    }
+  ]
+}

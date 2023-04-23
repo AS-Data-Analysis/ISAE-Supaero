@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.machineFile org.eventb.core.configuration="org.eventb.core.fwd" version="5">
+    <org.eventb.core.refinesMachine name="'" org.eventb.core.target="ATC_abstract_mc"/>
+    <org.eventb.core.seesContext name="(" org.eventb.core.target="ATC_ct_1st"/>
+    <org.eventb.core.event name="*" org.eventb.core.comment="total number of planes on ground (taxiways and runways) set to zero" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="INITIALISATION">
+        <org.eventb.core.action name="'" org.eventb.core.assignment="nb_ground ≔ 0" org.eventb.core.comment="initially there are no planes on the ground" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ 0" org.eventb.core.label="act2"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nb_takeoff ≔ 0" org.eventb.core.label="act3"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_landing ≔ 0" org.eventb.core.label="act4"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="6" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Taxi-Out">
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway − 1" org.eventb.core.comment="the number of planes on the taxiway is decremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.guard name=")" org.eventb.core.comment="there must be planes on the taxiway" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_taxiway &gt; 0"/>
+        <org.eventb.core.guard name="*" org.eventb.core.comment="there must be a free runway" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff + nb_landing &lt; nb_R"/>
+        <org.eventb.core.action name="+" org.eventb.core.assignment="nb_takeoff ≔ nb_takeoff + 1" org.eventb.core.comment="the number of planes on the runway ready to takeoff is incremented" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="+" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Take-off">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Take-off"/>
+        <org.eventb.core.guard name="'" org.eventb.core.comment="the must be atleast one plane on the ground" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &gt; 0"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground − 1" org.eventb.core.comment="the number of planes on the ground is decremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_takeoff ≔ nb_takeoff − 1" org.eventb.core.comment="the number of planes on the takeoff runway is decremented" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="there must be planes on the runway ready to takeoff" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff &gt; 0"/>
+    </org.eventb.core.event>
+    <org.eventb.core.event name="," org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Landing">
+        <org.eventb.core.refinesEvent name="'" org.eventb.core.target="Landing"/>
+        <org.eventb.core.guard name="'" org.eventb.core.comment="the number of planes already on the ground must be less than the airport capacity" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_ground &lt; nb_max"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_ground ≔ nb_ground + 1" org.eventb.core.comment="the number of planes on the ground is incremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name="*" org.eventb.core.assignment="nb_landing ≔ nb_landing + 1" org.eventb.core.comment="the number of planes on the landing runway is incremented" org.eventb.core.label="act2"/>
+        <org.eventb.core.guard name="+" org.eventb.core.comment="there must be a free runway" org.eventb.core.label="grd2" org.eventb.core.predicate="nb_takeoff + nb_landing &lt; nb_R"/>
+        <org.eventb.core.guard name="," org.eventb.core.comment="CON-1: number of planes on the ground is 20 max" org.eventb.core.label="grd3" org.eventb.core.predicate="nb_takeoff + nb_landing + nb_taxiway &lt; nb_max"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="-" org.eventb.core.comment="total number of planes on taxiways" org.eventb.core.identifier="nb_taxiway"/>
+    <org.eventb.core.invariant name="/" org.eventb.core.comment="number of planes on the taxiway must be non-negative" org.eventb.core.label="inv2" org.eventb.core.predicate="nb_taxiway ∈ ℕ"/>
+    <org.eventb.core.invariant name="0" org.eventb.core.comment="CON-1: number of planes on the ground is 20 max" org.eventb.core.label="inv3" org.eventb.core.predicate="nb_takeoff + nb_landing + nb_taxiway ≤ nb_max"/>
+    <org.eventb.core.variable name="3" org.eventb.core.comment="total number of planes on the ground i.e. taxiways and runways" org.eventb.core.identifier="nb_ground"/>
+    <org.eventb.core.event name="4" org.eventb.core.convergence="0" org.eventb.core.extended="false" org.eventb.core.label="Taxi_In">
+        <org.eventb.core.guard name="'" org.eventb.core.comment="there must be planes that have landed on the runway" org.eventb.core.label="grd1" org.eventb.core.predicate="nb_landing &gt; 0"/>
+        <org.eventb.core.action name="(" org.eventb.core.assignment="nb_taxiway ≔ nb_taxiway + 1" org.eventb.core.comment="the number of planes on the taxiway is incremented" org.eventb.core.label="act1"/>
+        <org.eventb.core.action name=")" org.eventb.core.assignment="nb_landing ≔ nb_landing − 1" org.eventb.core.comment="the number of planes on the landing runway is decremented" org.eventb.core.label="act2"/>
+    </org.eventb.core.event>
+    <org.eventb.core.variable name="5" org.eventb.core.comment="total number of planes that are on runways ready to takeoff" org.eventb.core.identifier="nb_takeoff"/>
+    <org.eventb.core.invariant name="8" org.eventb.core.comment="SAF-1: a runway is not occupied by more than one aircraft at a time (basic version, not fully satisfied)" org.eventb.core.label="inv5" org.eventb.core.predicate="nb_takeoff + nb_landing ≤ nb_R"/>
+    <org.eventb.core.invariant name=";" org.eventb.core.comment="-&gt; Glue Invariant" org.eventb.core.label="inv6" org.eventb.core.predicate="nb_ground = nb_takeoff + nb_landing + nb_taxiway"/>
+    <org.eventb.core.variable name="&gt;" org.eventb.core.comment="total number of planes that have landed on runways" org.eventb.core.identifier="nb_landing"/>
+    <org.eventb.core.invariant name="?" org.eventb.core.comment="number of planes taking-off must be non-negative" org.eventb.core.label="inv7" org.eventb.core.predicate="nb_takeoff ∈ ℕ"/>
+    <org.eventb.core.invariant name="@" org.eventb.core.comment="number of planes landing must be non-negative" org.eventb.core.label="inv8" org.eventb.core.predicate="nb_landing ∈ ℕ"/>
+    <org.eventb.core.invariant name="A" org.eventb.core.comment="DeadLock Freedom" org.eventb.core.label="DLF" org.eventb.core.predicate="(nb_taxiway&gt;0∧nb_takeoff+nb_landing&lt;nb_R)∨nb_takeoff&gt;0∨(nb_takeoff+nb_landing&lt;nb_R∧nb_takeoff+nb_landing+nb_taxiway&lt;nb_max)∨nb_landing&gt;0" org.eventb.core.theorem="true"/>
+</org.eventb.core.machineFile>

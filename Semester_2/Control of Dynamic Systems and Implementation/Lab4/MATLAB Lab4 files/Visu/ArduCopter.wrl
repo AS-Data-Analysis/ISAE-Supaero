@@ -1,0 +1,745 @@
+#VRML V2.0 utf8
+
+PROTO Copter_Arm [
+  exposedField SFRotation Shaft_Rotation 0 1 0 0
+  exposedField SFInt32 Propeller_Mode 0
+  field SFRotation Arm_Rot 0 1 0 0
+  # field SFColor Arm_DiffColor 0 0 0
+  # field SFColor Arm_EmissColor 0 0 0
+  field SFInt32 Prop_Right_Left 0
+  field SFInt32 Rod_Red_Gray 0
+]
+{
+  Transform {
+    rotation IS Arm_Rot
+    children [
+      DEF Rod Transform {
+        translation 0.15 0 0
+        children Switch {
+          whichChoice IS Rod_Red_Gray
+          choice [
+            # red rod
+            Shape {
+              appearance Appearance {
+                material Material {
+                  emissiveColor 0.2 0 0
+                  diffuseColor 0.7 0.1 0.1
+                }
+              }
+              geometry Box {
+                size 0.3 0.016 0.016
+              }
+            }
+            # gray rod
+            Shape {
+              appearance Appearance {
+                material Material {
+                  emissiveColor 0 0 0.2
+                  diffuseColor 0.4 0.4 0.4
+                }
+              }
+              geometry Box {
+                size 0.3 0.016 0.016
+              }
+            }
+          ]
+        }
+      }
+      DEF Plexi_Arc Transform {
+        translation 0.015 0.008 0.008
+        children Shape {
+          appearance DEF Plexi Appearance {
+            material Material {
+              transparency 0.5
+              specularColor 1 0.94 0.54
+              shininess 0.83
+              emissiveColor 0.4 0.4 0.4
+              diffuseColor 0.5 0.5 0.5
+              ambientIntensity 0
+            }
+          }
+          geometry Extrusion {
+            spine [
+              0 0 0.002,
+              0 0 0 
+            ]
+            crossSection [
+              0.072 0,
+              0.0718 0.0056,
+              0.0711 0.0113,
+              0.07 0.0168,
+              0.0685 0.0222,
+              0.0665 0.0276,
+              0.0642 0.0327,
+              0.0614 0.0376,
+              0.0582 0.0423,
+              0.0547 0.0468,
+              0.0509 0.0509,
+              0.0468 0.0547,
+              0.0423 0.0582,
+              0.0376 0.0614,
+              0.0327 0.0642,
+              0.0276 0.0665,
+              0.0222 0.0685,
+              0.0168 0.07,
+              0.0113 0.0711,
+              0.0056 0.0718,
+              0 0.072,
+              0 0.084,
+              0.0066 0.0837,
+              0.0131 0.083,
+              0.0196 0.0817,
+              0.026 0.0799,
+              0.0321 0.0776,
+              0.0381 0.0748,
+              0.0439 0.0716,
+              0.0494 0.068,
+              0.0546 0.0639,
+              0.0594 0.0594,
+              0.0639 0.0546,
+              0.068 0.0494,
+              0.0716 0.0439,
+              0.0748 0.0381,
+              0.0776 0.0321,
+              0.0799 0.026,
+              0.0817 0.0196,
+              0.083 0.0131,
+              0.0837 0.0066,
+              0.084 0,
+              0.084 -0.016,
+              0.078 -0.05,
+              0.072 -0.05,
+              0.072 0 
+            ]
+          }
+        }
+      }
+      DEF Propeller_Assembly Transform {
+        translation 0.3 0.015 0
+        children [
+          # Main motor
+          Transform {
+            children [
+              Shape {
+                appearance DEF Black_Metal Appearance {
+                  material Material {
+                    specularColor 0.5 0.5 0.5
+                    diffuseColor 0 0 0
+                    ambientIntensity 0
+                  }
+                }
+                geometry Cylinder {
+                  radius 0.019
+                  height 0.015
+                }
+              }
+              Transform {
+                translation 0 0.025 0
+                children Shape {
+                  appearance DEF Blue_Metal Appearance {
+                    material Material {
+                      specularColor 0.63 0.92 1
+                      diffuseColor 0 0 0.5
+                      ambientIntensity 0
+                    }
+                  }
+                  geometry Cylinder {
+                    radius 0.019
+                    height 0.035
+                  }
+                }
+              }
+            ]
+          }
+          # Main shaft
+          Transform {
+            translation 0 0.05 0
+            children 
+            # rotation 1 0 0 1.5708
+            Shape {
+              appearance DEF Aluminium Appearance {
+                material Material {
+                  specularColor 0.39 0.39 0.39
+                  shininess 0.11
+                  diffuseColor 0.51 0.51 0.51
+                  ambientIntensity 0.25
+                }
+              }
+              geometry Cylinder {
+                radius 0.004
+                height 0.02
+              }
+            }
+          }
+          # Main propeller bed
+          Transform {
+            translation 0 0.05 0
+            children 
+            # rotation 1 0 0 1.5708
+            Shape {
+              appearance USE Aluminium
+              geometry Cylinder {
+                radius 0.009
+                height 0.004
+              }
+            }
+          }
+          # Main Rotor
+          Transform {
+            translation 0 0.05 0
+            children 
+            # end of switch
+            DEF Rotor_Mode Switch {
+              whichChoice IS Propeller_Mode
+              choice [
+                # end of choice 1 - cylinder approximation only
+                # static rotor - rotation to be controlled
+                DEF MainRotor Transform {
+                  rotation IS Shaft_Rotation
+                  children 
+                  # end of choice 0 - static rotor
+                  DEF TwoBlades Group {
+                    children DEF Right_Left Switch {
+                      whichChoice IS Prop_Right_Left
+                      choice [
+                        DEF Blades_Right Transform {
+                          children [
+                            DEF Blade_1R Transform {
+                              translation 0.0045 0.00375 0.006
+                              scale 1 2 2
+                              rotation 1 0 0 1.83
+                              children DEF Blade1R_Shape Shape {
+                                appearance DEF BladeColor Appearance {
+                                  material Material {
+                                    specularColor 0.1 0.1 0.1
+                                    emissiveColor 0.1 0.1 0.1
+                                    diffuseColor 0.1 0.1 0.1
+                                    ambientIntensity 0
+                                  }
+                                }
+                                geometry Extrusion {
+                                  spine [
+                                    0.0008 0 0,
+                                    0.1 0 0 
+                                  ]
+                                  crossSection [
+                                    -0.002 0,
+                                    0.0012 -0.0002,
+                                    0.002 -0.0004,
+                                    0.0032 -0.0006,
+                                    0.0044 -0.0007,
+                                    0.0056 -0.0006,
+                                    0.006 -0.0005,
+                                    0.0064 -0.0004,
+                                    0.00662 0,
+                                    0.0064 0.00032,
+                                    0.006 0.00036,
+                                    0.0056 0.0004,
+                                    0.0044 0.0004,
+                                    0.0032 0.0004,
+                                    0.002 0.00036,
+                                    0.0012 0.0002,
+                                    -0.002 0 
+                                  ]
+                                  creaseAngle 0.8
+                                  ccw FALSE
+                                }
+                              }
+                            }
+                            DEF Blade_2R Transform {
+                              translation -0.0045 0.00375 -0.006
+                              scale 1 2 2
+                              rotation 1 0 0 1.31
+                              children DEF Blade2R_Shape Shape {
+                                appearance USE BladeColor
+                                geometry Extrusion {
+                                  spine [
+                                    -0.0008 0 0,
+                                    -0.1 0 0 
+                                  ]
+                                  crossSection [
+                                    -0.002 0,
+                                    0.0012 -0.0002,
+                                    0.002 -0.0004,
+                                    0.0032 -0.0006,
+                                    0.0044 -0.0007,
+                                    0.0056 -0.0006,
+                                    0.006 -0.0005,
+                                    0.0064 -0.0004,
+                                    0.00662 0,
+                                    0.0064 0.00032,
+                                    0.006 0.00036,
+                                    0.0056 0.0004,
+                                    0.0044 0.0004,
+                                    0.0032 0.0004,
+                                    0.002 0.00036,
+                                    0.0012 0.0002,
+                                    -0.002 0 
+                                  ]
+                                  creaseAngle 0.8
+                                  ccw FALSE
+                                }
+                              }
+                            }
+                          ]
+                        }
+                        DEF Blades_Left Transform {
+                          children [
+                            DEF Blade_1L Transform {
+                              translation -0.105 0.00375 0.006
+                              scale 1 2 2
+                              rotation 1 0 0 1.83
+                              children DEF Blade1L_Shape Shape {
+                                appearance USE BladeColor
+                                geometry Extrusion {
+                                  spine [
+                                    0.0008 0 0,
+                                    0.1 0 0 
+                                  ]
+                                  crossSection [
+                                    -0.002 0,
+                                    0.0012 -0.0002,
+                                    0.002 -0.0004,
+                                    0.0032 -0.0006,
+                                    0.0044 -0.0007,
+                                    0.0056 -0.0006,
+                                    0.006 -0.0005,
+                                    0.0064 -0.0004,
+                                    0.00662 0,
+                                    0.0064 0.00032,
+                                    0.006 0.00036,
+                                    0.0056 0.0004,
+                                    0.0044 0.0004,
+                                    0.0032 0.0004,
+                                    0.002 0.00036,
+                                    0.0012 0.0002,
+                                    -0.002 0 
+                                  ]
+                                  creaseAngle 0.8
+                                  ccw FALSE
+                                }
+                              }
+                            }
+                            DEF Blade_2LR Transform {
+                              translation 0.105 0.00375 -0.006
+                              scale 1 2 2
+                              rotation 1 0 0 1.31
+                              children DEF Blade2L_Shape Shape {
+                                appearance USE BladeColor
+                                geometry Extrusion {
+                                  spine [
+                                    -0.0008 0 0,
+                                    -0.1 0 0 
+                                  ]
+                                  crossSection [
+                                    -0.002 0,
+                                    0.0012 -0.0002,
+                                    0.002 -0.0004,
+                                    0.0032 -0.0006,
+                                    0.0044 -0.0007,
+                                    0.0056 -0.0006,
+                                    0.006 -0.0005,
+                                    0.0064 -0.0004,
+                                    0.00662 0,
+                                    0.0064 0.00032,
+                                    0.006 0.00036,
+                                    0.0056 0.0004,
+                                    0.0044 0.0004,
+                                    0.0032 0.0004,
+                                    0.002 0.00036,
+                                    0.0012 0.0002,
+                                    -0.002 0 
+                                  ]
+                                  creaseAngle 0.8
+                                  ccw FALSE
+                                }
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  }
+                }
+                Group {
+                  children 
+                  # Main propeller cylinder approximation
+                  Transform {
+                    translation 0 0.005 0
+                    children 
+                    # rotation 1 0 0 1.5708
+                    Shape {
+                      appearance Appearance {
+                        material Material {
+                          transparency 0.8
+                          specularColor 0.2 0.2 0.2
+                          shininess 0.05
+                          diffuseColor 0.1 0.1 0.1
+                        }
+                      }
+                      geometry Cylinder {
+                        radius 0.105
+                        height 0.005
+                      }
+                    }
+                  }
+                }
+              ]
+            }
+          }
+          # Main shaft bolt
+          Transform {
+            translation 0 0.064 0
+            children 
+            # rotation 1 0 0 1.5708
+            Shape {
+              appearance USE Aluminium
+              geometry Cone {
+                height 0.012
+                bottomRadius 0.009
+              }
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+WorldInfo {
+  title "VR Arducopter"
+  info [
+    "Copyright 2012 HUMUSOFT s.r.o. and The MathWorks, Inc." 
+    "$Revision: $" 
+    "$Date: $" 
+    "$Author: $" 
+  ]
+}
+NavigationInfo {
+  visibilityLimit 100000
+  type "EXAMINE" 
+  # speed 10
+  # visibilityLimit 20000
+  headlight TRUE
+  avatarSize [0.1, 1.6, 0.75]
+}
+DirectionalLight {
+  intensity 0.6
+  direction -1 -1 -1
+  ambientIntensity 0.5
+}
+DirectionalLight {
+  intensity 0.6
+  direction 1 -1 1
+  ambientIntensity 0.5
+}
+DEF Triad Transform {
+  scale 10 10 10
+  children DEF Triad_Shape Shape {
+    geometry DEF Triad_Geometry IndexedLineSet {
+      coordIndex [
+        0, 1, -1, 
+        0, 2, -1, 
+        0, 3, -1 
+      ]
+      colorPerVertex FALSE
+      colorIndex [
+        0, 1, 2 
+      ]
+      coord Coordinate {
+        point [
+          0 0 0,
+          1 0 0,
+          0 1 0,
+          0 0 1 
+        ]
+      }
+      color Color {
+        color [
+          1 0 0,
+          0 1 0,
+          0 0 1 
+        ]
+      }
+    }
+  }
+}
+DEF VP_Overview Viewpoint {
+  description "Overview"
+  position -6 2 -6
+  orientation 0 1 0 -2.35
+}
+DEF Camera_Observe Transform {
+  rotation 0 1 0 0
+  children Transform {
+    translation -1.8 1 0
+    rotation 0 1 0 -1.5708
+    children Viewpoint {
+      description "Observe Arducopter"
+      position 0 0 0
+      orientation 1 0 0 -0.2
+      fieldOfView 1.2
+    }
+  }
+}
+DEF Camera_Follow Transform {
+  rotation 0 1 0 0
+  children Transform {
+    translation -1.8 1 0
+    rotation 0 1 0 -1.5708
+    children DEF VP_Follow Viewpoint {
+      description "Follow Arducopter"
+      position 0 0 0
+      orientation 1 0 0 -0.2
+      fieldOfView 1.2
+    }
+  }
+}
+DEF Copter Transform {
+  children [
+    DEF Copter_Body Transform {
+      translation 0 0.042 0
+      rotation 0 1 1 0
+      children [
+        # End of body
+        DEF Arm_1 Copter_Arm {
+          #     Arm_DiffColor 0.7 0.1 0.1
+          #     Arm_EmissColor 0.2 0 0
+          Shaft_Rotation 0 1 0 1
+          Arm_Rot 0 1 0 -0.7854
+          Prop_Right_Left 1
+        }
+        DEF Arm_2 Copter_Arm {
+          #     Arm_DiffColor 0.4 0.4 0.4
+          #     Arm_EmissColor 0 0 0.2
+          Shaft_Rotation 0 1 0 1.5
+          Arm_Rot 0 1 0 0.7854
+        }
+        DEF Arm_3 Copter_Arm {
+          #     Arm_DiffColor 0.4 0.4 0.4
+          #     Arm_EmissColor 0 0 0.2
+          Shaft_Rotation 0 1 0 2
+          Arm_Rot 0 1 0 2.3562
+          Prop_Right_Left 1
+          Rod_Red_Gray 1
+        }
+        DEF Arm_4 Copter_Arm {
+          #     Arm_DiffColor 0.4 0.4 0.4
+          #     Arm_EmissColor 0 0 0.2
+          Shaft_Rotation 0 1 0 2.5
+          Arm_Rot 0 1 0 3.927
+          Rod_Red_Gray 1
+        }
+        DEF Body Transform {
+          children [
+            DEF Blue_Box Transform {
+              translation 0 -0.022 0
+              children Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.2 0.3 0.8
+                  }
+                }
+                geometry Box {
+                  size 0.12 0.025 0.05
+                }
+              }
+            }
+            DEF Rhomb_Base Transform {
+              children [
+                DEF RB_Lower Transform {
+                  translation 0 -0.01 0
+                  children DEF RB_Shape Shape {
+                    appearance DEF Grey_Metal Appearance {
+                      material Material {
+                        # specularColor .29 .29 .29
+                        shininess 0.11
+                        diffuseColor 0.51 0.51 0.51
+                        ambientIntensity 0.15
+                      }
+                    }
+                    geometry Extrusion {
+                      spine [
+                        0 0 0,
+                        0 0.002 0 
+                      ]
+                      crossSection [
+                        0.008 0.08,
+                        0.08 0.008,
+                        0.08 -0.008,
+                        0.008 -0.08,
+                        -0.008 -0.08,
+                        -0.08 -0.008,
+                        -0.08 0.008,
+                        -0.008 0.08,
+                        0.008 0.08 
+                      ]
+                    }
+                  }
+                }
+                DEF RB_Upper Transform {
+                  translation 0 0.01 0
+                  children USE RB_Shape
+                }
+              ]
+            }
+            DEF Yellow_Box Transform {
+              translation 0 0.025 0
+              children Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.7 0.5 0
+                  }
+                }
+                geometry Box {
+                  size 0.09 0.025 0.09
+                }
+              }
+            }
+            DEF Gray_Box Transform {
+              translation 0 0.05 0
+              children Shape {
+                appearance Appearance {
+                  material Material {
+                    diffuseColor 0.4 0.4 0.4
+                  }
+                }
+                geometry Box {
+                  size 0.07 0.03 0.07
+                }
+              }
+            }
+            DEF Plexi_Cylinder Transform {
+              translation 0 0.086 0
+              children Shape {
+                appearance DEF Plexi Appearance {
+                  material Material {
+                    transparency 0.28
+                    specularColor 1 0.94 0.54
+                    shininess 0.83
+                    emissiveColor 0.4 0.4 0.4
+                    diffuseColor 0.29 0.29 0.29
+                    ambientIntensity 0
+                  }
+                }
+                geometry Cylinder {
+                  radius 0.018
+                  height 0.012
+                }
+              }
+            }
+          ]
+        }
+      ]
+    }
+    LOD {
+      range 5
+      level [
+        Group {
+        }
+        DEF Aura Transform {
+          children Shape {
+            appearance Appearance {
+              material Material {
+                transparency 0.8
+                diffuseColor 1 0 0
+              }
+            }
+            geometry Sphere {
+            }
+          }
+        }
+      ]
+    }
+    DEF Camera_Ride Transform {
+      translation -1.8 1 0
+      rotation 0 1 0 -1.5708
+      children DEF VP_Ride Viewpoint {
+        description "Ride on Arducopter's Tail"
+        position 0 0 0
+        orientation 1 0 0 -0.4
+        fieldOfView 1.2
+      }
+    }
+    DEF Camera_BirdsEye Transform {
+      rotation 0 1 0 -1.5708
+      children DEF VP_BirdsEye Viewpoint {
+        description "Bird's Eye"
+        position 0 0.3 0
+        orientation 1 0 0 -0.2
+        fieldOfView 1.2
+      }
+    }
+  ]
+}
+DEF VP_Close Viewpoint {
+  description "Close View - Origin"
+  position 0.3 0.2 1.2
+  orientation 0 1 0 0.25
+}
+DEF VP_Top Viewpoint {
+  description "View from the Top"
+  position 0 50 0
+  orientation 1 0 0 -1.5708
+}
+DEF VP_Right Viewpoint {
+  description "View from the Right"
+  position 50 8 0
+  orientation 0 1 0 1.5708
+}
+DEF Scene_Switch Switch {
+  whichChoice 1
+  choice [
+    DEF Heliport Transform {
+      children Inline {
+        url "Images\Visualization\Heliport_Simple.wrl" 
+      }
+    }
+    DEF Apple_Hill Transform {
+      children Inline {
+        url "Images\Visualization\Apple_Hill.wrl" 
+      }
+    }
+    DEF Aerodrome Transform {
+      children Inline {
+        url "Images\Visualization\Aerodrome.wrl" 
+      }
+    }
+  ]
+}
+DEF Ground Group {
+  children Box {
+    size 10 0.1 10
+  }
+}
+Group {
+  bboxSize 4 0.1 4
+  children [
+    Box {
+      size 4 0.1 4
+    }
+    Appearance {
+      material Material {
+        emissiveColor 0.2 0 0
+        diffuseColor 0.7 0.1 0.1
+      }
+    }
+  ]
+}
+Background {
+  skyColor [
+    0.76238 0.8 0.1427,
+    0.277798 0.219779 0.7,
+    0.222549 0.390234 0.7,
+    0.60094 0.662637 0.69 
+  ]
+  skyAngle [0.1, 1.2, 1.57]
+  groundColor [
+    0 0.8 0,
+    0.174249 0.82 0.187362,
+    0.467223 0.82 0.445801,
+    0.621997 0.67 0.600279 
+  ]
+  groundAngle [0.9, 1.5, 1.57]
+}
+ROUTE Copter.translation TO Camera_Observe.translation

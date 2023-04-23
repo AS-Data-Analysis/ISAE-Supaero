@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config date="1620832988178" transient="false">
+	<site updateable="true" url="platform:/base/" enabled="true" policy="USER-EXCLUDE">
+		<feature id="org.eclipse.equinox.p2.core.feature" version="1.6.800.v20201106-1246" url="features/org.eclipse.equinox.p2.core.feature_1.6.800.v20201106-1246/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.rcp.feature" version="1.4.1000.v20201106-1246" url="features/org.eclipse.equinox.p2.rcp.feature_1.4.1000.v20201106-1246/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.ssl.feature" version="1.1.500.v20200812-2314" url="features/org.eclipse.ecf.core.ssl.feature_1.1.500.v20200812-2314/">
+		</feature>
+		<feature id="org.eclipse.emf.common" version="2.21.0.v20200917-1439" url="features/org.eclipse.emf.common_2.21.0.v20200917-1439/">
+		</feature>
+		<feature id="org.eclipse.e4.rcp" version="4.18.0.v20201202-1103" url="features/org.eclipse.e4.rcp_4.18.0.v20201202-1103/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.extras.feature" version="1.4.1000.v20201106-1246" url="features/org.eclipse.equinox.p2.extras.feature_1.4.1000.v20201106-1246/">
+		</feature>
+		<feature id="org.eclipse.equinox.p2.user.ui" version="2.4.1000.v20201106-1246" url="features/org.eclipse.equinox.p2.user.ui_2.4.1000.v20201106-1246/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.feature" version="3.14.1702.v20201025-2315" url="features/org.eclipse.ecf.filetransfer.feature_3.14.1702.v20201025-2315/">
+		</feature>
+		<feature id="org.eclipse.emf.ecore" version="2.23.0.v20200630-0516" url="features/org.eclipse.emf.ecore_2.23.0.v20200630-0516/">
+		</feature>
+		<feature id="org.rodinp.handbook.feature" version="2.5.0.201606291411" url="features/org.rodinp.handbook.feature_2.5.0.201606291411/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.ssl.feature" version="1.1.400.v20200812-2314" url="features/org.eclipse.ecf.filetransfer.ssl.feature_1.1.400.v20200812-2314/">
+		</feature>
+		<feature id="org.eclipse.platform" version="4.18.0.v20201202-1800" url="features/org.eclipse.platform_4.18.0.v20201202-1800/">
+		</feature>
+		<feature id="org.eclipse.ecf.core.feature" version="1.5.701.v20201027-0550" url="features/org.eclipse.ecf.core.feature_1.5.701.v20201027-0550/">
+		</feature>
+		<feature id="fr.systerel.editor" version="0.10.0.202105121522-77c344946" url="features/fr.systerel.editor_0.10.0.202105121522-77c344946/">
+		</feature>
+		<feature id="org.eclipse.rcp" version="4.18.0.v20201202-1800" url="features/org.eclipse.rcp_4.18.0.v20201202-1800/">
+		</feature>
+		<feature id="org.rodinp" version="1.9.0.202105121522-77c344946" url="features/org.rodinp_1.9.0.202105121522-77c344946/">
+		</feature>
+		<feature id="org.eclipse.ecf.filetransfer.httpclient45.feature" version="1.0.702.v20201025-2303" url="features/org.eclipse.ecf.filetransfer.httpclient45.feature_1.0.702.v20201025-2303/">
+		</feature>
+		<feature id="org.rodinp.platform" version="3.6.0.202105121522-77c344946" url="features/org.rodinp.platform_3.6.0.202105121522-77c344946/">
+		</feature>
+		<feature id="org.eventb.ide" version="3.6.0.202105121522-77c344946" url="features/org.eventb.ide_3.6.0.202105121522-77c344946/">
+		</feature>
+		<feature id="org.eclipse.help" version="2.3.400.v20201202-1800" url="features/org.eclipse.help_2.3.400.v20201202-1800/" plugin-identifier="org.eclipse.help.base">
+		</feature>
+	</site>
+</config>

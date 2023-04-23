@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<org.eventb.core.psFile>
+    <org.eventb.core.psStatus name="INITIALISATION/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="INITIALISATION/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Taxi-Out/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Taxi-Out/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Taxi-Out/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psBroken="true" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Take-off/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Take-off/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Landing/inv3/INV" org.eventb.core.confidence="0" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Landing/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Taxi_In/inv2/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Taxi_In/inv3/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+    <org.eventb.core.psStatus name="Taxi_In/inv5/INV" org.eventb.core.confidence="1000" org.eventb.core.poStamp="34" org.eventb.core.psManual="false"/>
+</org.eventb.core.psFile>
